@@ -9,10 +9,10 @@
 
     <ItemGroup>
       <Reference Include="MySql.Data">
-        <HintPath>..\..\anp22\bin\Release\net6.0-windows\MySql.Data.dll</HintPath>
+        <HintPath>ref\MySql.Data.dll</HintPath>
       </Reference>
       <Reference Include="Xceed.Wpf.Toolkit">
-        <HintPath>..\..\anp22\bin\Release\net6.0-windows\Xceed.Wpf.Toolkit.dll</HintPath>
+        <HintPath>ref\Xceed.Wpf.Toolkit.dll</HintPath>
       </Reference>
     </ItemGroup>
 
