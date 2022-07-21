@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="MySql.Data">
+        <HintPath>..\..\anp22\bin\Release\net6.0-windows\MySql.Data.dll</HintPath>
+      </Reference>
+      <Reference Include="Xceed.Wpf.Toolkit">
+        <HintPath>..\..\anp22\bin\Release\net6.0-windows\Xceed.Wpf.Toolkit.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>

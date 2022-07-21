@@ -1,0 +1,29 @@
+﻿<Window x:Class="intnet22.lib.legal.JuridicoWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Jurídico" Height="489" Width="800">
+    <Grid>
+        <Label Content="Nr execução" HorizontalAlignment="Left" Margin="41,60,0,0" Padding="0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="41,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Width="100" Height="30" Padding="5"/>
+        <Label Content="Nr originário" HorizontalAlignment="Left" Margin="161,60,0,0" Padding="0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="161,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Width="100" Height="30" Padding="5"/>
+        <Label Content="Data ajuizamento" HorizontalAlignment="Left" Margin="281,60,0,0" Padding="0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="281,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Width="100" Height="30" Padding="5"/>
+        <Label Content="Trânsito em julgado" HorizontalAlignment="Left" Margin="400,60,0,0" Padding="0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="401,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Width="100" Height="30" Padding="5"/>
+        <TextBox HorizontalAlignment="Left" Margin="40,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Width="221" Height="30" Padding="5"/>
+        <Label Content="Vara" HorizontalAlignment="Left" Margin="40,130,0,0" Padding="0" VerticalAlignment="Top"/>
+        <Label Content="Processo original" HorizontalAlignment="Left" Margin="41,20,0,0" Padding="0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Margin="280,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Width="220" Height="30" Padding="5"/>
+        <Label Content="Escritório" HorizontalAlignment="Left" Margin="280,130,0,0" Padding="0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="530,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Width="220" Height="30" Padding="5"/>
+        <Label Content="Autor" HorizontalAlignment="Left" Margin="540,130,0,0" Padding="0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="MainDataGrid"  Margin="40,300,40,40"/>
+        <TextBox HorizontalAlignment="Left" Margin="40,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Width="710" Height="60" Padding="5"/>
+        <Label Content="Objeto" HorizontalAlignment="Left" Margin="40,200,0,0" Padding="0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

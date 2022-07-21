@@ -1,0 +1,51 @@
+﻿<Window x:Class="intnet22.lib.financial.Despesas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Despesas" Height="475" Width="793" KeyDown="Window_KeyDown" WindowStyle="SingleBorderWindow">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+
+    <Grid>
+
+        <Button Style="{StaticResource TransparentButtonStyle}" Content="Inserir" Click="InsertButton_Click" Margin="20,50,0,0" />
+
+        <Label Content="Conta" Style="{StaticResource LabelStyle}" HorizontalAlignment="Right" Margin="0,20,520,0" />
+        <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboConta" HorizontalAlignment="Right" Margin="0,50,380,0" Width="170" />
+
+        <Label Content="Início" Style="{StaticResource LabelStyle}" HorizontalAlignment="Right" Margin="0,20,330,0" />
+        <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskInicio" Mask="00/00/0000" HorizontalAlignment="Right" Margin="0,50,260,0"/>
+
+        <Label Content="Fim" Style="{StaticResource LabelStyle}" HorizontalAlignment="Right" Margin="0,20,220,0" />
+        <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskFim" Mask="00/00/0000" HorizontalAlignment="Right" Margin="0,50,140,0"/>
+
+        <Button Style="{StaticResource TransparentButtonStyle}" Content="Extrato" Click="btnExtrato_Click" HorizontalAlignment="Right" Margin="20,50,20,20" />
+
+        <DataGrid x:Name="GridPrincipal" MouseDoubleClick="DataGrid1_MouseDoubleClick" Margin="20,100,20,20" IsTabStop="True" AutoGenerateColumns="False">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding IdLancamento}" />
+                <DataGridTextColumn Header="Conta" Binding="{Binding OutConta}" />
+                <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}" />
+                <DataGridTextColumn Header="Vencimento" Binding="{Binding OutVencimento}" />
+                <DataGridTextColumn Header="Baixa" Binding="{Binding OutBaixa}" />
+                <DataGridTextColumn Header="Valor bruto" Binding="{Binding ValorBruto}" />
+                <DataGridTextColumn Header="Valor líquido" Binding="{Binding ValorLiquido}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+    </Grid>
+
+
+</Window>
