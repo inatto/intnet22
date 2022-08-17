@@ -129,7 +129,7 @@ namespace intnet22.lib.associate
             //
             WpfModule.ControlFill(TextCpf, person.Cpf);
             WpfModule.ControlFill(TextNome, person.Nome);
-            WpfModule.ControlFill(TextApelido, person.Fantasia);
+            // WpfModule.ControlFill(TextApelido, person.Fantasia);
             WpfModule.ControlFill(CheckNaoMarketing, person.FlagNaoEnviarEmail);
 
             //
@@ -138,7 +138,6 @@ namespace intnet22.lib.associate
 
             //
             WpfModule.ControlFill(TextEmailPrincipal, person.EmailPrincipal);
-            WpfModule.ControlFill(TextApelido, person.Fantasia);
             WpfModule.ControlFill(ComboSexo, person.TagSexo);
 
             //
@@ -157,8 +156,8 @@ namespace intnet22.lib.associate
             WpfModule.ControlFill(TextNaturalidade, person.Naturalidade);
             WpfModule.ControlFill(TextNacionalidade, person.Nacionalidade);
             WpfModule.ControlFill(TextConjuge, person.NomeConjuge);
-            WpfModule.ControlFill(TextPai, person.NomePai);
-            WpfModule.ControlFill(TextMae, person.NomeMae);
+            // WpfModule.ControlFill(TextPai, person.NomePai);
+            // WpfModule.ControlFill(TextMae, person.NomeMae);
 
             //
             WpfModule.ControlFill(TextRgNr, person.RgNr);
@@ -168,9 +167,9 @@ namespace intnet22.lib.associate
             WpfModule.ControlFill(TextOab, person.OabNr);
 
             //
-            WpfModule.ControlFill(TextFacebook, person.FacebookUri);
-            WpfModule.ControlFill(TextInstagram, person.InstagramUri);
-            WpfModule.ControlFill(TextTwitter, person.TwitterUri);
+            // WpfModule.ControlFill(TextFacebook, person.FacebookUri);
+            // WpfModule.ControlFill(TextInstagram, person.InstagramUri);
+            // WpfModule.ControlFill(TextTwitter, person.TwitterUri);
             // WpfModule.ControlFill(TextSite, person.SiteUri);
 
             //
@@ -319,7 +318,7 @@ namespace intnet22.lib.associate
             MySqlModule.AddParameter(command, "@nome", TextNome);
             MySqlModule.AddParameter(command, "@dataNascimento", MaskDataNascimento);
             MySqlModule.AddParameter(command, "@emailPrincipal", TextEmailPrincipal);
-            MySqlModule.AddParameter(command, "@fantasia", TextApelido);
+            // MySqlModule.AddParameter(command, "@fantasia", TextApelido);
             MySqlModule.AddParameter(command, "@tag_sexo", ComboSexo);
             MySqlModule.AddParameter(command, "@tag_estadoCivil", ComboEstadoCivil);
             MySqlModule.AddParameter(command, "@dataObito", MaskDataObito);
@@ -336,8 +335,8 @@ namespace intnet22.lib.associate
             MySqlModule.AddParameter(command, "@naturalidade", TextNaturalidade);
             MySqlModule.AddParameter(command, "@nacionalidade", TextNacionalidade);
             MySqlModule.AddParameter(command, "@nomeConjugue", TextConjuge);
-            MySqlModule.AddParameter(command, "@nomePai", TextPai);
-            MySqlModule.AddParameter(command, "@nomeMae", TextMae);
+            // MySqlModule.AddParameter(command, "@nomePai", TextPai);
+            // MySqlModule.AddParameter(command, "@nomeMae", TextMae);
 
             //
             MySqlModule.AddParameter(command, "@rg", TextRgNr);
@@ -347,9 +346,9 @@ namespace intnet22.lib.associate
             MySqlModule.AddParameter(command, "@documentoOAB", TextOab);
 
             //
-            MySqlModule.AddParameter(command, "@facebook", TextFacebook);
-            MySqlModule.AddParameter(command, "@instagram", TextInstagram);
-            MySqlModule.AddParameter(command, "@twitter", TextTwitter);
+            // MySqlModule.AddParameter(command, "@facebook", TextFacebook);
+            // MySqlModule.AddParameter(command, "@instagram", TextInstagram);
+            // MySqlModule.AddParameter(command, "@twitter", TextTwitter);
             // MySqlModule.AddParameter(command, "@site", TextSite);
 
             //

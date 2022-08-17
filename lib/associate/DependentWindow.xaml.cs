@@ -79,7 +79,7 @@ namespace intnet22.lib.associate
 
             //
             TextEmailPrincipal.Text = person.EmailPrincipal;
-            TextApelido.Text = person.Fantasia;
+            // TextApelido.Text = person.Fantasia;
             ComboSexo.SelectedValue = person.TagSexo;
 
             //
@@ -149,7 +149,7 @@ namespace intnet22.lib.associate
             MySqlModule.AddParameter(command, "@cpf", TextCpf);
             MySqlModule.AddParameter(command, "@dataNascimento", MaskDataNascimento);
             MySqlModule.AddParameter(command, "@emailPrincipal", TextEmailPrincipal);
-            MySqlModule.AddParameter(command, "@fantasia", TextApelido);
+            // MySqlModule.AddParameter(command, "@fantasia", TextApelido);
             MySqlModule.AddParameter(command, "@tag_sexo", ComboSexo);
             MySqlModule.AddParameter(command, "@tag_estadoCivil", ComboEstadoCivil);
             command.Parameters.AddWithValue("@tag_tipopessoa", "dependente");
@@ -198,7 +198,7 @@ namespace intnet22.lib.associate
             MySqlModule.AddParameter(command, "@nome", TextNome);
             MySqlModule.AddParameter(command, "@dataNascimento", MaskDataNascimento);
             MySqlModule.AddParameter(command, "@emailPrincipal", TextEmailPrincipal);
-            MySqlModule.AddParameter(command, "@fantasia", TextApelido);
+            // MySqlModule.AddParameter(command, "@fantasia", TextApelido);
             MySqlModule.AddParameter(command, "@tag_sexo", ComboSexo);
             MySqlModule.AddParameter(command, "@tag_estadoCivil", ComboEstadoCivil);
             command.ExecuteNonQuery();
