@@ -13,9 +13,11 @@ namespace intnet22.lib.financial
         //
         public long? IdContaFinanceira { get; set; }
         public long? IdGrupoContabil { get; set; }
+        public long? IdTipoLancamento { get; set; }
 
         //
         public string? Descricao { get; set; }
+        public string? MetaTitle { get; set; }
         public DateTime? DataBaixa{ get; set; }
         public DateTime? DataVencimento { get; set; }
         public DateTime? MesAnoReferencia { get; set; }

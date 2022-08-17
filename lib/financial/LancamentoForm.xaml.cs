@@ -4,6 +4,7 @@ using System.Windows;
 using intnet22.lib.general;
 using intnet22.lib.general.wpf;
 using MySql.Data.MySqlClient;
+// ReSharper disable All
 
 namespace intnet22.lib.financial
 {
@@ -53,8 +54,15 @@ namespace intnet22.lib.financial
         //
         private void Load()
         {
-            ControlModule.ComboLoad(_conn, ComboGrupoContabil, "select id_grupoContabil, nome from grupo_contabil order by nome;", "id_grupoContabil", "nome");
+            //
+            if (_operacao == "debito")
+                ControlModule.ComboLoad(_conn, ComboGrupoContabil, "select id_grupoContabil, nome from grupo_contabil where ehDespesa = 1 order by nome;", "id_grupoContabil", "nome");
+            else
+                ControlModule.ComboLoad(_conn, ComboGrupoContabil, "select id_grupoContabil, nome from grupo_contabil where ehReceita = 1 order by nome;", "id_grupoContabil", "nome");
+
+            //
             ControlModule.ComboLoad(_conn, ComboConta, "select id_contaFinanceira, nome from conta_financeira where active = 1", "id_ContaFinanceira", "nome");
+            ControlModule.ComboLoad(_conn, ComboTipo, "select id_tipoLancamento, nome from tipo_lancamento order by nome;", "id_tipoLancamento", "nome");
         }
 
         private void Fill()
@@ -76,10 +84,12 @@ namespace intnet22.lib.financial
 
             //
             WpfModule.ControlFill(ComboGrupoContabil, vo.IdGrupoContabil);
+            WpfModule.ControlFill(ComboTipo, vo.IdTipoLancamento);
             WpfModule.ControlFill(ComboConta, vo.IdContaFinanceira);
             WpfModule.ControlFill(TextValorLiquido, vo.ValorLiquido);
             WpfModule.ControlFill(TextValorBruto, vo.ValorBruto);
             WpfModule.ControlFill(TextDescricao, vo.Descricao);
+            WpfModule.ControlFill(TextCredor, vo.MetaTitle);
             WpfModule.ControlFill(MaskVencimento, vo.DataVencimento);
             WpfModule.ControlFill(MaskBaixa, vo.DataBaixa);
             WpfModule.ControlFill(MaskReferencia, vo.MesAnoReferencia);
@@ -136,8 +146,8 @@ namespace intnet22.lib.financial
         {
             //
             const string sql = $"insert into lancamento" +
-                               $"( operacao,  id_contaFinanceira,  id_grupoContabil,  dataVencimento, dataBaixa,  mesAnoReferencia,  valorBruto,  valorLiquido,  descricao) values " +
-                               $"(@operacao, @id_contaFinanceira, @id_grupoContabil, @dataVencimento,@dataBaixa, @mesAnoReferencia, @valorBruto, @valorLiquido, @descricao);";
+                               $"( operacao,  id_contaFinanceira, id_tipoLancamento,  id_grupoContabil,  dataVencimento, dataBaixa,  mesAnoReferencia,  valorBruto,  valorLiquido,  descricao, metaTitle) values " +
+                               $"(@operacao, @id_contaFinanceira, @id_tipoLancamento, @id_grupoContabil, @dataVencimento,@dataBaixa, @mesAnoReferencia, @valorBruto, @valorLiquido, @descricao, @metaTitle);";
 
             //
             MySqlCommand command = new(sql, _conn);
@@ -153,6 +163,7 @@ namespace intnet22.lib.financial
             var sql = MySqlModule.ParMirror(
                 $" update lancamento set " +
                 $"  operacao = @@ " +
+                $", id_tipoLancamento = @@ " +
                 $", id_contaFinanceira = @@ " +
                 $", id_grupoContabil = @@ " +
                 $", dataVencimento = @@ " +
@@ -161,6 +172,7 @@ namespace intnet22.lib.financial
                 $", valorBruto = @@ " +
                 $", valorLiquido = @@ " +
                 $", descricao = @@ " +
+                $", metaTitle = @@ " +
                 $" where id_lancamento = {_idLancamento}"
             );
 
@@ -175,6 +187,7 @@ namespace intnet22.lib.financial
             //
             command.Parameters.AddWithValue("@operacao", _operacao);
             MySqlModule.AddParameter(command, "@id_contaFinanceira", ComboConta);
+            MySqlModule.AddParameter(command, "@id_tipoLancamento", ComboTipo);
             MySqlModule.AddParameter(command, "@id_grupoContabil", ComboGrupoContabil);
             MySqlModule.AddParameter(command, "@dataVencimento", MaskVencimento);
             MySqlModule.AddParameter(command, "@dataBaixa", MaskBaixa);
@@ -182,6 +195,7 @@ namespace intnet22.lib.financial
             MySqlModule.AddParameter(command, "@valorBruto", TextValorBruto);
             MySqlModule.AddParameter(command, "@valorLiquido", TextValorLiquido);
             MySqlModule.AddParameter(command, "@descricao", TextDescricao);
+            MySqlModule.AddParameter(command, "@metaTitle", TextCredor);
         }
 
         private void Delete()

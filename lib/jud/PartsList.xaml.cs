@@ -50,8 +50,10 @@ namespace intnet22.lib.jud
 
             //
             var filtro = "";
-            if (CheckExecucoes.IsChecked == true) filtro += " and ifnull(numeroExecucao,'') <> '' ";
-            if (CheckEmbargos.IsChecked == true) filtro += " and ifnull(numeroEmbargos,'') <> '' ";
+            //if (CheckExecucoes.IsChecked == true) filtro += " and ifnull(numeroExecucao,'') <> '' ";
+            if (CheckExecucoes.IsChecked == true) filtro += " and ifnull(processoEmExecucao_,'') <> '' ";
+            //if (CheckEmbargos.IsChecked == true) filtro += " and ifnull(numeroEmbargos,'') <> '' ";
+            if (CheckEmbargos.IsChecked == true) filtro += " and ifnull(valorExecutado,'') <> '' ";
 
             var sql = $" select pj.*, p.nome from parte_jud pj " +
                                $" left join membro m on m.id_membro = pj.id_membro " +

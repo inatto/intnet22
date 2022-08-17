@@ -171,7 +171,7 @@ namespace intnet22.lib.associate
             WpfModule.ControlFill(TextFacebook, person.FacebookUri);
             WpfModule.ControlFill(TextInstagram, person.InstagramUri);
             WpfModule.ControlFill(TextTwitter, person.TwitterUri);
-            WpfModule.ControlFill(TextSite, person.SiteUri);
+            // WpfModule.ControlFill(TextSite, person.SiteUri);
 
             //
             WpfModule.ControlFill(TextObs, person.PersonObs);
@@ -302,7 +302,6 @@ namespace intnet22.lib.associate
                 $", facebook=@@ " +
                 $", instagram=@@ " +
                 $", twitter=@@ " +
-                $", site=@@ " +
                 $", obs=@@ " +
                 $" where id_pessoa = {_member.VoPerson.IdPessoa}"
             );
@@ -351,7 +350,7 @@ namespace intnet22.lib.associate
             MySqlModule.AddParameter(command, "@facebook", TextFacebook);
             MySqlModule.AddParameter(command, "@instagram", TextInstagram);
             MySqlModule.AddParameter(command, "@twitter", TextTwitter);
-            MySqlModule.AddParameter(command, "@site", TextSite);
+            // MySqlModule.AddParameter(command, "@site", TextSite);
 
             //
             MySqlModule.AddParameter(command, "@obs", TextObs);

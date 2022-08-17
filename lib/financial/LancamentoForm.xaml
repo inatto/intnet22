@@ -7,7 +7,7 @@
         xmlns:general="clr-namespace:intnet22.lib.general"
         xmlns:wpf="clr-namespace:intnet22.lib.general.wpf"
         mc:Ignorable="d"
-        Title="Lançamento" Height="360" Width="790" ResizeMode="NoResize" KeyDown="Window_KeyDown">
+        Title="Lançamento" Height="400" Width="790" ResizeMode="NoResize" KeyDown="Window_KeyDown">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -19,11 +19,18 @@
 
     <Grid>
 
-        <Label Style="{StaticResource LabelStyle}" Content="Conta" Margin="40,20,0,0" />
-        <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboConta" Margin="40,40,0,0" Width="220" />
+
+        <Label Style="{StaticResource LabelStyle}" Content="Tipo" Margin="40,20,0,0" />
+        <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboTipo" Margin="40,40,0,0" Width="220" />
 
         <Label Style="{StaticResource LabelStyle}" Content="Vencimento" Margin="280,20,0,0" />
         <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskVencimento" Margin="280,40,0,0" Mask="00/00/0000" />
+
+        <Label Style="{StaticResource LabelStyle}" Content="Conta" Margin="400,20,0,0" />
+        <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboConta" Margin="400,40,0,0" Width="220" />
+
+
+        <!--  -->
 
         <Label Style="{StaticResource LabelStyle}" Content="Grupo contábil" Margin="40,80,0,0" />
         <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboGrupoContabil" Margin="40,100,0,0" Width="221" />
@@ -40,11 +47,17 @@
         <Label Style="{StaticResource LabelStyle}" Content="Valor líquido" Margin="640,80,0,0" />
         <general:MoneyBox Style="{StaticResource TextBoxStyle}" x:Name="TextValorLiquido" Margin="640,100,0,0" />
 
-        <Label Style="{StaticResource LabelStyle}" Content="Descrição" Margin="40,140,0,0" />
-        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextDescricao" Margin="40,160,0,0" TextWrapping="Wrap" Width="700" Height="60" />
+        <!--  -->
+        <Label Style="{StaticResource LabelStyle}" Content="Credor" Margin="40,140,0,0" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextCredor" Margin="40,160,0,0" TextWrapping="Wrap" Width="700" />
 
-        <CheckBox Style="{StaticResource CheckStyle}" x:Name="CheckRemover" Content="Remover" Margin="40,250,0,0" />
-        <Button Style="{StaticResource ButtonStyle}" Content="Confirmar" Margin="640,250,0,0" Click="Button_Click" />
+
+        <!--  -->
+        <Label Style="{StaticResource LabelStyle}" Content="Descrição" Margin="40,200,0,0" />
+        <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextDescricao" Margin="40,220,0,0" TextWrapping="Wrap" Width="700" Height="60" />
+
+        <CheckBox Style="{StaticResource CheckStyle}" x:Name="CheckRemover" Content="Remover" Margin="40,290,0,0" />
+        <Button Style="{StaticResource ButtonStyle}" Content="Confirmar" Margin="640,290,0,0" Click="Button_Click" />
 
     </Grid>
 

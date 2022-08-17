@@ -42,7 +42,6 @@
                     <ListBox x:Name="ListBoxAuto" KeyDown="AutoCompleteList_KeyDown" />
                 </Border>
             </WrapPanel>
-
         </StackPanel>
 
 

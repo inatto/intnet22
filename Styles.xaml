@@ -56,7 +56,9 @@
         <Setter Property = "Orientation" Value = "Vertical" />
         <Setter Property = "VerticalAlignment" Value = "Top" />
     </Style>
+
     <Style x:Key = "CheckStyle" TargetType = "CheckBox">
+        <Setter Property="Padding" Value="5" />
     </Style>
 
 </ResourceDictionary>

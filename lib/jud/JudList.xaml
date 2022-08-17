@@ -24,7 +24,9 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding IdProcessoJud}" />
-                <DataGridTextColumn Header="Título" Binding="{Binding MetaTitle}" />
+                <DataGridTextColumn Header="Processo" Binding="{Binding NrProcessoExecucao}" />
+                <DataGridTextColumn Header="Vara" Binding="{Binding TempVaraJud}" />
+                <DataGridTextColumn Header="Ajuizamento" Binding="{Binding DataAjuizamento}" />
             </DataGrid.Columns>
 
         </wpf:GeneralGrid>
