@@ -34,7 +34,7 @@
 
                 <WrapPanel Margin="20,0,0,0"></WrapPanel>
                 <WrapPanel Style="{StaticResource WrapStyle}">
-                    <Label Style="{StaticResource LabelStyle}" Content="Nome" />
+                    <Label Style="{StaticResource LabelStyle}" Content="Nome completo" />
                     <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextNome" Width="500" />
                 </WrapPanel>
 
@@ -53,11 +53,11 @@
                     <Label Style="{StaticResource LabelStyle}" Content="E-mail principal" />
                     <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextEmailPrincipal" Width="340" />
                 </WrapPanel>
-                <WrapPanel Margin="20,0,0,0"></WrapPanel>
-                <WrapPanel Style="{StaticResource WrapStyle}">
-                    <Label Style="{StaticResource LabelStyle}" Content="Apelido" />
-                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextApelido" Width="260" />
-                </WrapPanel>
+                <!-- <WrapPanel Margin="20,0,0,0"></WrapPanel> -->
+                <!-- <WrapPanel Style="{StaticResource WrapStyle}"> -->
+                    <!-- <Label Style="{StaticResource LabelStyle}" Content="Apelido" /> -->
+                    <!-- <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextApelido" Width="260" /> -->
+                <!-- </WrapPanel> -->
                 <WrapPanel Margin="20,0,0,0"></WrapPanel>
                 <WrapPanel Style="{StaticResource WrapStyle}">
                     <Label Style="{StaticResource LabelStyle}" Content="Sexo" />
