@@ -62,7 +62,6 @@ namespace intnet22.lib.associate
                       $" ) " +
                       $" and (ufResidencial = '{uf}' or '{uf}' = \"\")  " +
                       $" order by nome "; // +
-            // $" limit 100";
 
 
             //
