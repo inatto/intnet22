@@ -20,6 +20,7 @@ namespace intnet22.lib.jud
 
         //
         public string? Ref1993 { get; set; }
+        public string? NrPrecatorioJud { get; set; }
         public string? CorrespondenciaEnviada { get; set; }
         public string? TermoAcordoRecebido { get; set; }
         public string? CalculoHexagonRecebido { get; set; }
@@ -30,11 +31,11 @@ namespace intnet22.lib.jud
         public string? EnviadoAoMotaParaContato { get; set; }
         public string? AlegacaoLitispendencia { get; set; }
         public string? PediramDesistencia { get; set; }
+        public string? SituacaoSireaExequente { get; set; }
+        public string? UltimoTramite { get; set; }
 
         //
         public string? NumeroExecucao { get; set; }
         public string? NumeroEmbargos { get; set; }
-
-
     }
 }

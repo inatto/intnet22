@@ -31,9 +31,9 @@ namespace intnet22.lib.financial
             vo.IdContaFinanceira = MySqlModule.ToLong(reader["id_contaFinanceira"]);
             vo.Descricao = reader["descricao"].ToString();
             vo.MetaTitle = reader["metaTitle"].ToString();
-            vo.DataBaixa = MySqlModule.ToDateTime(reader["dataBaixa"].ToString());
-            vo.DataVencimento = MySqlModule.ToDateTime(reader["dataVencimento"].ToString());
-            vo.MesAnoReferencia = MySqlModule.ToDateTime(reader["mesAnoReferencia"].ToString());
+            vo.DataBaixa = MySqlModule.MyDateToDateTime(reader["dataBaixa"].ToString());
+            vo.DataVencimento = MySqlModule.MyDateToDateTime(reader["dataVencimento"].ToString());
+            vo.MesAnoReferencia = MySqlModule.MyDateToDateTime(reader["mesAnoReferencia"].ToString());
             vo.ValorBruto = MySqlModule.FromStringToFloat(reader["valorBruto"].ToString());
             vo.ValorLiquido = MySqlModule.FromStringToFloat(reader["valorLiquido"].ToString());
 

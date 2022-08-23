@@ -4,7 +4,6 @@
                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                    xmlns:wpf="clr-namespace:intnet22.lib.general.wpf"
-                   xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
                    mc:Ignorable="d"
                    Title="Associados" Height="700" Width="900" KeyDown="Window_KeyDown">
 
@@ -41,13 +40,15 @@
                          PreviewKeyDown="MainDataGrid_PreviewKeyDown" MouseDoubleClick="MainDataGrid_MouseDoubleClick">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding IdProcessoJud}" />
+                <!-- <DataGridTextColumn Header="ID" Binding="{Binding IdProcessoJud}" /> -->
+                <DataGridTextColumn Header="Nome do processo" Binding="{Binding TituloProcesso}" />
                 <DataGridTextColumn Header="Processo originário" Binding="{Binding NrProcessoOriginario}" />
-                <DataGridTextColumn Header="Processo execução" Binding="{Binding NrProcessoExecucao}" />
-                <DataGridTextColumn Header="Objeto" Binding="{Binding ObjetoJud}" />
-                <DataGridTextColumn Header="Escritório" Binding="{Binding TempEscritorioAdv}" />
-                <DataGridTextColumn Header="Vara" Binding="{Binding TempVaraJud}" />
-                <DataGridTextColumn Header="Ajuizamento" Binding="{Binding DataAjuizamento, StringFormat=\{0:dd/MM/yyyy\}}" />
+                <DataGridTextColumn Header="Nova numeração" Binding="{Binding NrProcessoNovo}" />
+                <!-- <DataGridTextColumn Header="Execução" Binding="{Binding NrProcessoExecucao}" /> -->
+                <!-- <DataGridTextColumn Header="Objeto" Binding="{Binding ObjetoJud}" /> -->
+                <!-- <DataGridTextColumn Header="Escritório" Binding="{Binding TempEscritorioAdv}" /> -->
+                <!-- <DataGridTextColumn Header="Vara" Binding="{Binding TempVaraJud}" /> -->
+                <!-- <DataGridTextColumn Header="Ajuizamento" Binding="{Binding DataAjuizamento, StringFormat=\{0:dd/MM/yyyy\}}" /> -->
             </DataGrid.Columns>
 
         </wpf:GeneralGrid>

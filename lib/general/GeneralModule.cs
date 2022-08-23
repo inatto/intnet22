@@ -69,6 +69,21 @@ namespace intnet22.lib.general
             image.Source = bitmap;
         }
 
+        public static void UrlIcon(Image image, string url)
+        {
+            //
+            var bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(url, UriKind.Absolute);
+            bitmap.EndInit();
+
+            //
+            image.Width = 16;
+            image.Source = bitmap;
+        }
+
+
+
 
     }
 }

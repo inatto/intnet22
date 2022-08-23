@@ -17,7 +17,7 @@ namespace intnet22.lib.jud
     public partial class ProcessesList : IGrid
     {
         //
-        private readonly MySqlConnection? _conn;
+        private readonly MySqlConnection _conn;
 
 
         public ProcessesList()
@@ -36,12 +36,7 @@ namespace intnet22.lib.jud
         {
             //
             var search = TextLocalizar.Text;
-            var sql = @" select * from processo_jud where 1 ";
-            sql += $" and nrProcessoExecucao like '%{search}%' or nrProcessoOriginario like '%{search}%' or tempVaraJud like '%{search}%' or tempAutorJud like '%{search}%'";
-
-            //
-            var command = new MySqlCommand(sql, _conn);
-            var reader = command.ExecuteReader();
+            var reader = JudModel.ProcessReader(_conn, null, search);
 
             //
             var count = 0;
@@ -50,20 +45,7 @@ namespace intnet22.lib.jud
             {
                 //
                 count++;
-                var vo = new VoProcessoJud();
-                vo.IdProcessoJud = (int)(uint)reader["id_processoJud"];
-                vo.NrProcessoExecucao = reader["nrProcessoExecucao"].ToString();
-                vo.NrProcessoOriginario = reader["nrProcessoOriginario"].ToString();
-                vo.DataAjuizamento =  MySqlModule.ToDateTime(reader["dataAjuizamento"].ToString());
-                vo.DataTransitoJulgado =  MySqlModule.ToDateTime(reader["dataTransitoJulgado"].ToString());
-                vo.TempVaraJud = reader["tempVaraJud"].ToString();
-                vo.TempEscritorioAdv = reader["tempEscritorioAdv"].ToString();
-                vo.ObjetoJud = reader["ObjetoJud"].ToString();
-
-                //
-                vo.MetaTitle = reader["metaTitle"].ToString();
-
-                //
+                var vo = JudModel.VoProcessoFromReader(reader);
                 vos.Add(vo);
             }
 

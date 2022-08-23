@@ -26,7 +26,7 @@ namespace intnet22.lib.general
             //
             MySqlConnection conn = new();
             conn.ConnectionString = "server=anpprev.org.br;user id=anp_homologation;database=anp_homologation;password=^CE__gBCvU}a&+!;persistsecurityinfo=True";
-            conn.ConnectionString = "server=localhost;user id=localroot;database=anp_homologation;password=Camry?!;persistsecurityinfo=True";
+            // conn.ConnectionString = "server=localhost;user id=localroot;database=anp_homologation;password=Camry?!;persistsecurityinfo=True";
             // conn.ConnectionString = "server=anpprev.org.br;user id=anp_production;database=anp_production;password=^CEgBCvU}a&+!;persistsecurityinfo=True";
             // conn.ConnectionString = "server=localhost;user id=root;database=anp_20220426;password=Debora?!;persistsecurityinfo=True";
             conn.Open();
@@ -150,9 +150,10 @@ namespace intnet22.lib.general
 
 
         /**
-         * MySql >> Vo
+         * Converte formato data do mysql para formato datetime c#
+         * MySql Date >> C# DateTime
          */
-        public static DateTime? ToDateTime(string? param)
+        public static DateTime? MyDateToDateTime(string? param)
         {
             //
             if (string.IsNullOrEmpty(param)) return null;

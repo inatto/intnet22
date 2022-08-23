@@ -2,7 +2,6 @@
 using System.Windows.Input;
 using intnet22.lib.financial;
 using intnet22.lib.general;
-using intnet22.lib.jud;
 using MySql.Data.MySqlClient;
 
 // ReSharper disable UseObjectOrCollectionInitializer
@@ -10,11 +9,11 @@ using MySql.Data.MySqlClient;
 // ReSharper disable once UseObjectOrCollectionInitializer
 
 //
-namespace intnet22.lib.associate.templates
+namespace intnet22.lib.jud.templates
 {
     /// <summary>
     /// </summary>
-    public partial class Juridical : IGrid
+    public partial class PartsGrid : IGrid
     {
         //
         private MySqlConnection? _conn;
@@ -42,7 +41,7 @@ namespace intnet22.lib.associate.templates
         }
 
 
-        public Juridical()
+        public PartsGrid()
         {
             //
             InitializeComponent();
@@ -60,7 +59,8 @@ namespace intnet22.lib.associate.templates
             var sql = " select * from vw_parteJud where 1 ";
             if (_idMembroOwner is not null) sql += $" and id_membro = {_idMembroOwner} ";
             if (_idProcesso is not null) sql += $" and id_processoJud = {_idProcesso} ";
-            sql += " order by nome desc limit 10 ";
+            // sql += " order by nome ";
+            // sql += " limit 200 ";
 
             //
             var command = new MySqlCommand(sql, _conn);

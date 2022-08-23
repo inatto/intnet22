@@ -37,7 +37,7 @@ namespace intnet22.lib.associate.templates
             InitializeComponent();
 
             //
-            GeneralModule.BucketIconFc(ImgDependentes, "users_3");
+            GeneralModule.UrlIcon(ImgDependentes, "https://cdn-icons-png.flaticon.com/128/5069/5069169.png");
         }
 
         public void LoadGrid()

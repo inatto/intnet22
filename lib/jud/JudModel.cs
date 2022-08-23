@@ -1,5 +1,8 @@
 ﻿using System;
+using intnet22.lib.general;
 using intnet22.lib.jud;
+using intnet22.lib.member;
+using intnet22.lib.person;
 using MySql.Data.MySqlClient;
 
 // ReSharper disable All
@@ -12,32 +15,90 @@ namespace intnet22.lib.financial
 {
     public static class JudModel
     {
-        public static VoProcessoJud? ProcessoFromReader(MySqlConnection? conn, long? id = null)
+        public static MySqlDataReader ProcessReader(MySqlConnection conn, long? id, string? search)
         {
             //
-            if (id is null or 0) return null;
-            if (conn is null) throw new Exception("Null Connection");
+            var sql = "select * from processo_jud where 1 ";
 
-            MySqlCommand command = new($"select * from processo_jud where id_processoJud = " + id, conn);
+            //
+            if (!String.IsNullOrEmpty(search))
+                sql += $" and nrProcessoExecucao like '%{search}%' or nrProcessoOriginario like '%{search}%' or tempVaraJud like '%{search}%' or tempAutorJud like '%{search}%' ";
+            //
+            var command = new MySqlCommand(sql, conn);
             var reader = command.ExecuteReader();
 
             //
+            return reader;
+        }
+
+
+        public static VoProcessoJud? VoProcesso(MySqlConnection conn, long? id)
+        {
+            //
+            // if (id is null or 0) return null;
+            if (conn is null) throw new Exception("Null Connection");
+            if (id is null) throw new Exception("Null Id");
+
+            //
+            string sql = @"select 
+                            id_processoJud, tituloProcesso, nrProcessoExecucao, dataAjuizamento, dataTransitoJulgado, nrProcessoNovo,
+                            nrProcessoOriginario, tempVaraJud, tempEscritorioAdv, ObjetoJud, metaTitle, nomeJuiz 
+                            from processo_jud where id_processoJud = " + id;
+
+            //
+            MySqlCommand command = new(sql, conn);
+            var reader = command.ExecuteReader();
             reader.Read();
-
-            //
-            var vo = new VoProcessoJud();
-            vo.IdProcessoJud = (int)(uint)reader["id_processoJud"];
-            vo.NrProcessoExecucao = reader["nrProcessoExecucao"].ToString();
-            // vo.IdGrupoContabil = MySqlModule.ToLong(reader["id_grupoContabil"]);
-            // vo.IdContaFinanceira = MySqlModule.ToLong(reader["id_contaFinanceira"]);
-            // vo.DataBaixa = MySqlModule.ToDateTime(reader["dataBaixa"].ToString());
-            // vo.ValorLiquido = MySqlModule.FromStringToFloat(reader["valorLiquido"].ToString());
-
-            //
+            var vo = VoProcessoFromReader(reader);
             reader.Close();
 
             //
             return vo;
         }
+
+        public static VoProcessoJud VoProcessoFromReader(MySqlDataReader reader)
+        {
+            //
+            var vo = new VoProcessoJud();
+            vo.IdProcessoJud = (int)(uint)reader["id_processoJud"];
+            vo.TituloProcesso = reader["tituloProcesso"].ToString();
+            vo.NrProcessoExecucao = reader["nrProcessoExecucao"].ToString();
+            vo.NrProcessoOriginario = reader["nrProcessoOriginario"].ToString();
+            vo.NrProcessoNovo = reader["nrProcessoNovo"].ToString();
+            vo.TempVaraJud = reader["tempVaraJud"].ToString();
+            vo.TempEscritorioAdv = reader["tempEscritorioAdv"].ToString();
+            vo.ObjetoJud = reader["ObjetoJud"].ToString();
+            vo.MetaTitle = reader["metaTitle"].ToString();
+            vo.NomeJuiz = reader["nomeJuiz"].ToString();
+
+            //
+            vo.DataAjuizamento = MySqlModule.MyDateToDateTime(reader["dataAjuizamento"].ToString());
+            vo.DataTransitoJulgado = MySqlModule.MyDateToDateTime(reader["dataTransitoJulgado"].ToString());
+
+            //
+            return vo;
+        }
+
+        public static VoPartJud VoParteFromReader(MySqlDataReader reader)
+        {
+            //
+            var vo = new VoPartJud();
+
+            //
+            vo.VoMember = new VoMember();
+            vo.VoMember.VoPerson = new VoPerson();
+            vo.VoMember.VoPerson.Nome = reader["nome"].ToString();
+
+            //
+            vo.NumeroExecucao = reader["numeroExecucao"].ToString();
+            vo.NumeroEmbargos = reader["numeroEmbargos"].ToString();
+            vo.NrPrecatorioJud = reader["nrPrecatorioJud"].ToString();
+            vo.SituacaoSireaExequente = reader["situacaoSireaExequente"].ToString();
+            vo.UltimoTramite = "*** Verificar se pertence ao processo ou à parte ***";
+
+            //
+            return vo;
+        }
+
     }
 }

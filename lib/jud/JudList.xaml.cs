@@ -51,7 +51,7 @@ namespace intnet22.lib.jud
                 vo.IdProcessoJud = (int)(uint)reader["id_processoJud"];
                 vo.NrProcessoExecucao = reader["nrProcessoExecucao"].ToString();
                 vo.TempVaraJud = reader["tempVaraJud"].ToString();
-                vo.DataAjuizamento =  MySqlModule.ToDateTime(reader["dataAjuizamento"].ToString());
+                vo.DataAjuizamento =  MySqlModule.MyDateToDateTime(reader["dataAjuizamento"].ToString());
                 vo.MetaTitle = reader["metaTitle"].ToString();
 
                 //

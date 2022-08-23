@@ -47,7 +47,7 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Ativo" Binding="{Binding ActiveAlt}" FontWeight="Bold" />
-                <DataGridTextColumn Header="ID" Binding="{Binding IdMembro}" />
+                <!-- <DataGridTextColumn Header="ID" Binding="{Binding IdMembro}" /> -->
                 <DataGridTextColumn Header="Nome" Binding="{Binding VoPerson.Nome}" />
                 <DataGridTextColumn Header="CPF" Binding="{Binding VoPerson.Cpf}" />
                 <DataGridTextColumn Header="E-mail" Binding="{Binding VoPerson.EmailPrincipal}" />

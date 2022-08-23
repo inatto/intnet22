@@ -7,7 +7,6 @@ using intnet22.lib.general.wpf;
 using intnet22.lib.member;
 using intnet22.lib.person;
 using MySql.Data.MySqlClient;
-using MessageBox = System.Windows.MessageBox;
 
 // ReSharper disable LoopCanBeConvertedToQuery
 // ReSharper disable once UseObjectOrCollectionInitializer
@@ -31,18 +30,17 @@ namespace intnet22.lib.associate
 
             //
             InitializeComponent();
-            GeneralModule.BucketIconFc(ImgPessoal, "vcard_edit");
-            GeneralModule.BucketIconFc(ImgVinculo, "sql_join_inner");
-            GeneralModule.BucketIconFc(ImgFuncional, "building");
-            GeneralModule.BucketIconFc(ImgAposentadoria, "weather_sun_fog");
-            GeneralModule.BucketIconFc(ImgEnderecos, "mail_box");
-            GeneralModule.BucketIconFc(ImgInfo, "viewstack");
+            GeneralModule.UrlIcon(ImgPessoal, "https://cdn-icons-png.flaticon.com/128/3917/3917711.png");
+            GeneralModule.UrlIcon(ImgVinculo, "https://cdn-icons-png.flaticon.com/128/3914/3914283.png");
+            GeneralModule.UrlIcon(ImgFuncional, "https://cdn-icons-png.flaticon.com/128/3916/3916690.png");
+            GeneralModule.UrlIcon(ImgEnderecos, "https://cdn-icons-png.flaticon.com/128/5074/5074235.png");
+            GeneralModule.UrlIcon(ImgInfo, "https://cdn-icons-png.flaticon.com/128/3916/3916607.png");
 
             //
             _conn = MySqlModule.Connectt();
             _member = MemberModel.MemberFromReader(_conn, idMembro);
             TplDependents.IdPessoaOwner = _member.IdPessoa;
-            TplJuridical.IdMembroOwner = _member.IdMembro;
+            // TplJuridical.IdMembroOwner = _member.IdMembro;
 
             //
             Load();
@@ -275,7 +273,6 @@ namespace intnet22.lib.associate
                 $"  nome=@@ " +
                 $", emailPrincipal=@@ " +
                 $", cpf=@@ " +
-                $", fantasia=@@ " +
                 $", dataNascimento=@@ " +
                 $", tag_sexo=@@ " +
                 $", tag_estadoCivil=@@ " +
@@ -291,16 +288,11 @@ namespace intnet22.lib.associate
                 $", naturalidade=@@ " +
                 $", nacionalidade=@@ " +
                 $", nomeConjugue=@@ " +
-                $", nomePai=@@ " +
-                $", nomeMae=@@ " +
                 $", rg=@@ " +
                 $", rgOrgao=@@ " +
                 $", rgUf=@@ " +
                 $", rgData=@@ " +
                 $", documentoOAB=@@ " +
-                $", facebook=@@ " +
-                $", instagram=@@ " +
-                $", twitter=@@ " +
                 $", obs=@@ " +
                 $" where id_pessoa = {_member.VoPerson.IdPessoa}"
             );

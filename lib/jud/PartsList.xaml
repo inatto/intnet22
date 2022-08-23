@@ -37,23 +37,22 @@
                          PreviewKeyDown="MainDataGrid_PreviewKeyDown" MouseDoubleClick="MainDataGrid_MouseDoubleClick">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding IdPartJud}" />
-                <DataGridTextColumn Header="ID Membro" Binding="{Binding IdMembro}" />
+                <!-- <DataGridTextColumn Header="ID" Binding="{Binding IdPartJud}" /> -->
+                <!-- <DataGridTextColumn Header="ID Membro" Binding="{Binding IdMembro}" /> -->
                 <DataGridTextColumn Header="Nome" Binding="{Binding VoMember.VoPerson.Nome}" />
 
-                <DataGridTextColumn Header="Nº Execução" Binding="{Binding NumeroExecucao}" />
-                <DataGridTextColumn Header="Nº Embargos" Binding="{Binding NumeroEmbargos}" />
-
-                <DataGridTextColumn Header="Correspondência enviada?" Binding="{Binding CorrespondenciaEnviada}" />
-                <DataGridTextColumn Header="Termo do acordo recebido?" Binding="{Binding TermoAcordoRecebido}" />
-                <DataGridTextColumn Header="Cálculo Hexagon recebido?" Binding="{Binding CalculoHexagonRecebido}" />
-                <DataGridTextColumn Header="Aviso de recebimento" Binding="{Binding AvisoRecebimento}" />
-                <DataGridTextColumn Header="Termo assinado recebido" Binding="{Binding TermoAssinadoRecebido}" />
-                <DataGridTextColumn Header="Envio de e-mail" Binding="{Binding EmailEnviado}" />
-                <DataGridTextColumn Header="Ref 1993" Binding="{Binding PercentualAplicado}" />
-                <DataGridTextColumn Header="% aplicado" Binding="{Binding EnviadoAoMotaParaContato}" />
-                <DataGridTextColumn Header="Alegação Listispendência" Binding="{Binding AlegacaoLitispendencia}" />
-                <DataGridTextColumn Header="Pediram desistência" Binding="{Binding PediramDesistencia}" />
+                <!-- <DataGridTextColumn Header="Nº Execução" Binding="{Binding NumeroExecucao}" /> -->
+                <!-- <DataGridTextColumn Header="Nº Embargos" Binding="{Binding NumeroEmbargos}" /> -->
+                <!-- <DataGridTextColumn Header="Correspondência enviada?" Binding="{Binding CorrespondenciaEnviada}" /> -->
+                <!-- <DataGridTextColumn Header="Termo do acordo recebido?" Binding="{Binding TermoAcordoRecebido}" /> -->
+                <!-- <DataGridTextColumn Header="Cálculo Hexagon recebido?" Binding="{Binding CalculoHexagonRecebido}" /> -->
+                <!-- <DataGridTextColumn Header="Aviso de recebimento" Binding="{Binding AvisoRecebimento}" /> -->
+                <!-- <DataGridTextColumn Header="Termo assinado recebido" Binding="{Binding TermoAssinadoRecebido}" /> -->
+                <!-- <DataGridTextColumn Header="Envio de e-mail" Binding="{Binding EmailEnviado}" /> -->
+                <!-- <DataGridTextColumn Header="Ref 1993" Binding="{Binding PercentualAplicado}" /> -->
+                <!-- <DataGridTextColumn Header="% aplicado" Binding="{Binding EnviadoAoMotaParaContato}" /> -->
+                <!-- <DataGridTextColumn Header="Alegação Listispendência" Binding="{Binding AlegacaoLitispendencia}" /> -->
+                <!-- <DataGridTextColumn Header="Pediram desistência" Binding="{Binding PediramDesistencia}" /> -->
 
             </DataGrid.Columns>
 

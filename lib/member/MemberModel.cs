@@ -40,9 +40,9 @@ namespace intnet22.lib.member
             vo.MatriculaOrgao = reader["matriculaOrgao"].ToString();
             vo.NrContrato = reader["nrContrato"].ToString();
             vo.ValorMensalidade = MySqlModule.FromStringToFloat(reader["valorMensalidade"].ToString());
-            vo.DataIngresso = MySqlModule.ToDateTime(reader["dataIngresso"].ToString());
-            vo.DataFiliacao = MySqlModule.ToDateTime(reader["dataFiliacao"].ToString());
-            vo.DataDesfiliacao = MySqlModule.ToDateTime(reader["dataDesfiliacao"].ToString());
+            vo.DataIngresso = MySqlModule.MyDateToDateTime(reader["dataIngresso"].ToString());
+            vo.DataFiliacao = MySqlModule.MyDateToDateTime(reader["dataFiliacao"].ToString());
+            vo.DataDesfiliacao = MySqlModule.MyDateToDateTime(reader["dataDesfiliacao"].ToString());
             //
             vo.CodigoOrgaoPublico = reader["codigoOrgaoPublico"].ToString();
             vo.OrgaoPublico = reader["orgaoPublico"].ToString();
@@ -62,7 +62,7 @@ namespace intnet22.lib.member
             vo.CodigoInstituidorPensao = reader["codigoInstituidorPensao"].ToString();
 
             //
-            vo.DataAposentadoria = MySqlModule.ToDateTime(reader["DataAposentadoria"].ToString());
+            vo.DataAposentadoria = MySqlModule.MyDateToDateTime(reader["DataAposentadoria"].ToString());
             vo.TipoAposentadoria = reader["tipoAposentadoria"].ToString();
             vo.FracaoAposentadoria = reader["fracaoAposentadoria"].ToString();
 

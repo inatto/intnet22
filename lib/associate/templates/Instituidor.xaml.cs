@@ -30,7 +30,7 @@ namespace intnet22.lib.associate.templates
             _autoComplete = new AutoComplete(_conn, TextBlockIdMembroPai, TextBlockCaption, TextBoxBusca, ListBoxAuto);
 
             //
-            GeneralModule.BucketIconFc(ImgInstituidor, "user_go");
+            GeneralModule.UrlIcon(ImgInstituidor, "https://cdn-icons-png.flaticon.com/128/3917/3917717.png");
         }
 
         private void TextInstituidor_KeyUp(object sender, KeyEventArgs e)
