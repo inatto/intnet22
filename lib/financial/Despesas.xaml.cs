@@ -118,7 +118,7 @@ namespace intnet22.lib.financial
             LinkExtrato(idConta, MaskInicio.Text, MaskFim.Text);
         }
 
-        public static void LinkExtrato(string idConta, string dtInicio, string dtFim)
+        private static void LinkExtrato(string idConta, string dtInicio, string dtFim)
         {
             //
             var queryString = HttpUtility.ParseQueryString(string.Empty);
@@ -137,7 +137,7 @@ namespace intnet22.lib.financial
             queryString.Add("idc", idConta);
 
             //
-            GeneralModule.OpenUrl("https://dev.anpprev.org.br/anp/financial/extrato?" + queryString.ToString());
+            GeneralModule.OpenUrl("https://dev.anpprev.org.br/anp/financial/extrato?" + queryString);
         }
     }
 }

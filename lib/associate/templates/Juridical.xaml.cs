@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Windows.Input;
-using intnet22.lib.financial;
+﻿using System.Web;
+using System.Windows;
 using intnet22.lib.general;
-using intnet22.lib.jud;
-using MySql.Data.MySqlClient;
 
 // ReSharper disable UseObjectOrCollectionInitializer
 // ReSharper disable LoopCanBeConvertedToQuery
@@ -17,7 +14,7 @@ namespace intnet22.lib.associate.templates
     public partial class Juridical : IGrid
     {
         //
-        private MySqlConnection? _conn;
+        // private MySqlConnection? _conn;
         private long? _idMembroOwner;
         private long? _idProcesso;
 
@@ -27,7 +24,8 @@ namespace intnet22.lib.associate.templates
             set
             {
                 _idMembroOwner = value;
-                LoadGrid();
+                _idMembroOwner = value;
+                // LoadGrid();
             }
         }
 
@@ -37,7 +35,8 @@ namespace intnet22.lib.associate.templates
             set
             {
                 _idProcesso = value;
-                LoadGrid();
+                _idProcesso = value;
+                // LoadGrid();
             }
         }
 
@@ -48,13 +47,13 @@ namespace intnet22.lib.associate.templates
             InitializeComponent();
 
             //
-            // GeneralModule.BucketIconFc(TabIcon, "users_3");
+            GeneralModule.UrlIcon(ImgIcon, "https://cdn-icons-png.flaticon.com/128/3916/3916607.png");
         }
 
         public void LoadGrid()
         {
             //
-            _conn = MySqlModule.Connectt();
+            /*_conn = MySqlModule.Connectt();
 
             //
             var sql = " select * from vw_parteJud where 1 ";
@@ -77,23 +76,24 @@ namespace intnet22.lib.associate.templates
 
             //
             reader.Close();
-            MainDataGrid.ItemsSource = vos;
+            MainDataGrid.ItemsSource = vos;*/
         }
 
-        private void MainDataGrid_OnMouseDoubleClick(object? sender = null, MouseButtonEventArgs? e = null)
+
+        private void ReportButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            LinkReport(this._idMembroOwner);
+        }
+
+        private static void LinkReport(long? idMembro)
         {
             //
-            //ControlModule.OpenModalWindow(this, new DependentWindow(Constants.Update, _idMembroOwner, MainDataGrid.FirstId()));
-        }
-
-        private void MainDataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            // desabilita enter indo para baixo
-            if (e.Key != Key.Enter) return;
-            e.Handled = true;
+            var queryString = HttpUtility.ParseQueryString(string.Empty);
+            queryString.Add("01bdd9b45cbbd569d2e01510d6538f29", idMembro.ToString());
 
             //
-            MainDataGrid_OnMouseDoubleClick();
+            GeneralModule.OpenUrl("https://dev.anpprev.org.br/jud/processReport?" + queryString);
         }
+
     }
 }

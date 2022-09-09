@@ -40,7 +40,7 @@ namespace intnet22.lib.associate
             _conn = MySqlModule.Connectt();
             _member = MemberModel.MemberFromReader(_conn, idMembro);
             TplDependents.IdPessoaOwner = _member.IdPessoa;
-            // TplJuridical.IdMembroOwner = _member.IdMembro;
+            TplJuridical.IdMembroOwner = _member.IdMembro;
 
             //
             Load();
