@@ -55,13 +55,13 @@ namespace intnet22.lib.associate
 
             //
             var search = TextLocalizar.Text;
-            var sql = $" select * from vw_associado " +
-                      $" where 1 " +
-                      $" and (" +
-                      $"    nome like '%{search}%' or matriculaOrgao like '%{search}%' or tag_statusCarreira like '%{search}%'  " +
-                      $" ) " +
-                      $" and (ufResidencial = '{uf}' or '{uf}' = \"\")  " +
-                      $" order by nome "; // +
+            var sql = $@"    select * from vw_associado
+                            where 1 
+                            and (
+                                nome like '%{search}%' or cpf like '%{search}%' or matriculaOrgao like '%{search}%' or tag_statusCarreira like '%{search}%'  
+                            ) 
+                            and (ufResidencial = '{uf}' or '{uf}' = '')  
+                            order by nome limit 10"; // +
 
 
             //

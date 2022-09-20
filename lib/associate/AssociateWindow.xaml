@@ -26,7 +26,7 @@
         <TabControl BorderThickness="1" Padding="0" Background="#eeeeee">
 
             <!-- Dados pessoais -->
-            <TabItem>
+            <TabItem  IsSelected="True">
 
                 <TabItem.Header>
                     <StackPanel>
@@ -214,7 +214,7 @@
             </TabItem>
 
             <!-- Funcional -->
-            <TabItem IsSelected="True">
+            <TabItem>
 
                 <TabItem.Header>
                     <StackPanel>
@@ -416,7 +416,19 @@
             </TabItem>
 
             <!-- Instituidor -->
-            <templates:Instituidor x:Name="TplInstituidor" />
+            <TabItem>
+
+                <TabItem.Header>
+                    <StackPanel>
+                        <Image Style="{StaticResource ImageStyle}" Name="ImgInstituidor" />
+                        <TextBlock Text="Instituidor" FontSize="12" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <templates:Instituidor x:Name="TplInstituidor" />
+
+            </TabItem>
+
 
             <!-- Dependentes -->
             <templates:Dependents x:Name="TplDependents" />

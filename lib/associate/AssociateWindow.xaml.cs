@@ -35,6 +35,7 @@ namespace intnet22.lib.associate
             GeneralModule.UrlIcon(ImgFuncional, "https://cdn-icons-png.flaticon.com/128/3916/3916690.png");
             GeneralModule.UrlIcon(ImgEnderecos, "https://cdn-icons-png.flaticon.com/128/5074/5074235.png");
             GeneralModule.UrlIcon(ImgInfo, "https://cdn-icons-png.flaticon.com/128/3916/3916607.png");
+            GeneralModule.UrlIcon(ImgInstituidor, "https://cdn-icons-png.flaticon.com/128/3917/3917717.png");
 
             //
             _conn = MySqlModule.Connectt();

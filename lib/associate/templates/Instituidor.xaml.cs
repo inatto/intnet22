@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Windows;
+using System.Windows.Input;
 using intnet22.lib.general;
 using intnet22.lib.member;
 using MySql.Data.MySqlClient;
@@ -28,9 +29,6 @@ namespace intnet22.lib.associate.templates
             //
             _conn = MySqlModule.Connectt();
             _autoComplete = new AutoComplete(_conn, TextBlockIdMembroPai, TextBlockCaption, TextBoxBusca, ListBoxAuto);
-
-            //
-            GeneralModule.UrlIcon(ImgInstituidor, "https://cdn-icons-png.flaticon.com/128/3917/3917717.png");
         }
 
         private void TextInstituidor_KeyUp(object sender, KeyEventArgs e)
@@ -63,5 +61,11 @@ namespace intnet22.lib.associate.templates
             command.Parameters.AddWithValue("@nomeInstituidorPensao", TextNomeInstituidor.Text);
         }
 
+        private void ButtonVerInstituidor_OnClick(object sender, RoutedEventArgs e)
+        {
+            //
+            // TabControl tabControl = (TabControl)((TabItem)Parent).Parent;
+            ControlModule.OpenWindow(Window.GetWindow(this), new AssociateWindow(Constants.Update, MySqlModule.ToInt(TextBlockIdMembroPai.Text)));
+        }
     }
 }

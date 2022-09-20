@@ -32,8 +32,11 @@ namespace intnet22.lib.general
             }
         }
 
-        public static void OpenWindow(Window owner, Window window)
+        public static void OpenWindow(Window? owner, Window window)
         {
+            //
+            if (owner is null) Application.Current.Shutdown(17261);
+
             //
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.WindowState = WindowState.Normal;
