@@ -76,10 +76,11 @@ namespace intnet22.lib.associate
             TextCpf.Text = person.Cpf;
             TextNome.Text = person.Nome;
             MaskDataNascimento.Text = ControlModule.ToMaskDate(person.DataNascimento);
+            MaskFone1.Text = person.CelularPrincipal;
+            MaskFone2.Text = person.CelularPrincipal2;
 
             //
             TextEmailPrincipal.Text = person.EmailPrincipal;
-            // TextApelido.Text = person.Fantasia;
             ComboSexo.SelectedValue = person.TagSexo;
 
             //
@@ -124,7 +125,7 @@ namespace intnet22.lib.associate
             }
             catch (MySqlException e)
             {
-                MessageBox.Show(e.Message, "Conexão", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(e.Message + e.InnerException, "Conexão", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (Exception e)
             {
@@ -138,8 +139,8 @@ namespace intnet22.lib.associate
         {
             //
             const string sql = $"insert into pessoa " +
-                               $"( nome,  cpf,  dataNascimento,  emailPrincipal,  fantasia,  tag_sexo,  tag_estadoCivil,  tag_tipoPessoa) values" +
-                               $"(@nome, @cpf, @dataNascimento, @emailPrincipal, @fantasia, @tag_sexo, @tag_estadoCivil, @tag_tipoPessoa) ";
+                               $"( nome,  cpf,  dataNascimento,  emailPrincipal,  tag_sexo,  tag_estadoCivil,  tag_tipoPessoa, celularPrincipal, celularPrincipal2) values" +
+                               $"(@nome, @cpf, @dataNascimento, @emailPrincipal, @tag_sexo, @tag_estadoCivil, @tag_tipoPessoa, @celularPrincipal, @celularPrincipal2) ";
 
             //
             MySqlCommand command = new(sql, _conn);
@@ -149,12 +150,13 @@ namespace intnet22.lib.associate
             MySqlModule.AddParameter(command, "@cpf", TextCpf);
             MySqlModule.AddParameter(command, "@dataNascimento", MaskDataNascimento);
             MySqlModule.AddParameter(command, "@emailPrincipal", TextEmailPrincipal);
-            // MySqlModule.AddParameter(command, "@fantasia", TextApelido);
             MySqlModule.AddParameter(command, "@tag_sexo", ComboSexo);
             MySqlModule.AddParameter(command, "@tag_estadoCivil", ComboEstadoCivil);
-            command.Parameters.AddWithValue("@tag_tipopessoa", "dependente");
+            MySqlModule.AddParameter(command, "@celularPrincipal", MaskFone1);
+            MySqlModule.AddParameter(command, "@celularPrincipal2", MaskFone2);
 
             //
+            command.Parameters.AddWithValue("@tag_tipopessoa", "dependente");
             command.ExecuteNonQuery();
             return command.LastInsertedId;
         }
@@ -186,21 +188,27 @@ namespace intnet22.lib.associate
                 $", nome=@@ " +
                 $", dataNascimento=@@ " +
                 $", emailPrincipal=@@ " +
-                $", fantasia=@@ " +
                 $", tag_sexo=@@ " +
                 $", tag_estadoCivil=@@ " +
+                $", celularPrincipal=@@ " +
+                $", celularPrincipal2=@@ " +
                 $" where id_pessoa = {_member.VoPerson.IdPessoa}"
             );
 
             //
             MySqlCommand command = new(sql, _conn);
+
+            //
             MySqlModule.AddParameter(command, "@cpf", TextCpf);
             MySqlModule.AddParameter(command, "@nome", TextNome);
             MySqlModule.AddParameter(command, "@dataNascimento", MaskDataNascimento);
             MySqlModule.AddParameter(command, "@emailPrincipal", TextEmailPrincipal);
-            // MySqlModule.AddParameter(command, "@fantasia", TextApelido);
             MySqlModule.AddParameter(command, "@tag_sexo", ComboSexo);
             MySqlModule.AddParameter(command, "@tag_estadoCivil", ComboEstadoCivil);
+            MySqlModule.AddParameter(command, "@celularPrincipal", MaskFone1);
+            MySqlModule.AddParameter(command, "@celularPrincipal2", MaskFone2);
+
+            //
             command.ExecuteNonQuery();
         }
 

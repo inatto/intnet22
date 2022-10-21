@@ -35,9 +35,6 @@ namespace intnet22.lib.associate.templates
         {
             //
             InitializeComponent();
-
-            //
-            GeneralModule.UrlIcon(ImgDependentes, "https://cdn-icons-png.flaticon.com/128/5069/5069169.png");
         }
 
         public void LoadGrid()
@@ -85,7 +82,6 @@ namespace intnet22.lib.associate.templates
 
         private void MainDataGrid_OnMouseDoubleClick(object? sender = null, MouseButtonEventArgs? e = null)
         {
-            //
             ControlModule.OpenModalWindow(this, new DependentWindow(Constants.Update, _idPessoaOwner, MainDataGrid.FirstId()));
         }
 
@@ -98,8 +94,5 @@ namespace intnet22.lib.associate.templates
             //
             MainDataGrid_OnMouseDoubleClick();
         }
-
-
-
     }
 }

@@ -44,7 +44,7 @@ namespace intnet22.lib.general
             window.Show();
         }
 
-        public static void OpenModalWindow(Control parentControl, GeneralWindow window)
+        public static void OpenModalWindow(FrameworkElement parentControl, GeneralWindow window)
         {
             //
             window.OwnerControl = parentControl;

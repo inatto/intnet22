@@ -16,6 +16,9 @@ namespace intnet22.lib.financial
         public long? IdTipoLancamento { get; set; }
 
         //
+        public long? Conciliado { get; set; }
+
+        //
         public string? Descricao { get; set; }
         public string? MetaTitle { get; set; }
         public DateTime? DataBaixa{ get; set; }
@@ -26,9 +29,6 @@ namespace intnet22.lib.financial
         public float? ValorLiquido { get; set; }
 
         //
-        public string? OutConta { get; set; }
-        public string? OutBaixa { get; set; }
-        public string? OutVencimento { get; set; }
 
         public override string ToString()
         {

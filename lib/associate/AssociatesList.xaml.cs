@@ -33,6 +33,7 @@ namespace intnet22.lib.associate
 
             //
             TextLocalizar.Focus();
+
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -61,7 +62,7 @@ namespace intnet22.lib.associate
                                 nome like '%{search}%' or cpf like '%{search}%' or matriculaOrgao like '%{search}%' or tag_statusCarreira like '%{search}%'  
                             ) 
                             and (ufResidencial = '{uf}' or '{uf}' = '')  
-                            order by nome limit 10"; // +
+                            order by nome"; // +
 
 
             //
@@ -79,6 +80,7 @@ namespace intnet22.lib.associate
                 vo.Active = MySqlModule.FromStringToBool(reader["active"].ToString());
                 vo.ActiveAlt = MySqlModule.FromBoolToHuman(vo.Active);
                 vo.IdMembro = (int)(uint)reader["id_membro"];
+                vo.TagStatusCarreira = reader["tag_statusCarreira"].ToString();
 
                 //
                 vo.VoMembroPai = new VoMember();

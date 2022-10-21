@@ -37,9 +37,11 @@ namespace intnet22.lib.person
             vo.Nome = reader["nome"].ToString();
             vo.Fantasia = reader["fantasia"].ToString();
             vo.EmailPrincipal = reader["emailPrincipal"].ToString();
+            vo.EmailComercial = reader["emailComercial"].ToString();
             vo.DataNascimento = MySqlModule.MyDateToDateTime(reader["dataNascimento"].ToString());
             vo.DataObito = MySqlModule.MyDateToDateTime(reader["dataObito"].ToString());
             vo.CelularPrincipal = MySqlModule.PhoneStringCheck(reader["celularPrincipal"].ToString());
+            vo.CelularPrincipal2 = MySqlModule.PhoneStringCheck(reader["celularPrincipal2"].ToString());
             vo.CelularComercial = MySqlModule.PhoneStringCheck(reader["celularComercial"].ToString());
             vo.TelefoneResidencial = MySqlModule.PhoneStringCheck(reader["telefoneResidencial"].ToString());
             vo.TelefoneComercial = MySqlModule.PhoneStringCheck(reader["telefoneComercial"].ToString());

@@ -1,5 +1,4 @@
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace intnet22.lib.general.wpf;
@@ -7,7 +6,7 @@ namespace intnet22.lib.general.wpf;
 public class GeneralWindow : Window
 {
     //
-    public Control? OwnerControl { get; set; }
+    public FrameworkElement? OwnerControl { get; set; }
 
     protected GeneralWindow()
     {
@@ -17,5 +16,4 @@ public class GeneralWindow : Window
     {
         ControlModule.WindowEscape(sender, e, this);
     }
-
 }

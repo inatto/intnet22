@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping
+        xmlns="urn:nhibernate-mapping-2.2"
+        assembly="intnet22"
+        namespace="intnet22.lib.financial.domain">
+
+    <class name="intnet22.lib.financial.domain.Lancamento" table="lancamento">
+
+        <id name="Id" column="id_lancamento" type="int">
+            <generator class="native"/>
+        </id>
+        <property name="Descricao" column="descricao" type="String"/>
+
+    </class>
+
+</hibernate-mapping>

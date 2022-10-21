@@ -22,7 +22,7 @@ namespace intnet22.lib.associate
             ControlModule.ComboLoad(_conn, ComboEstadoCivil, "select id_estadoCivil, tag_estadoCivil, nome from estado_civil;", "tag_estadoCivil", "nome");
             ControlModule.ComboLoad(_conn, ComboCarreira, "select id_carreiraServidor, nome from carreira_servidor where ifnull(active,0) = 1 order by nome;", "id_carreiraServidor", "nome");
             ControlModule.ComboLoad(_conn, ComboStatusAssociativo, "select id_statusAssociativo, nomeStatAssoc from status_associativo  order by nomeStatAssoc;", "id_statusAssociativo", "nomeStatAssoc");
-            ControlModule.ComboLoad(_conn, ComboStatusCarreira, "select tag_statusCarreira, nome from status_carreira order by nome;", "tag_statusCarreira", "nome");
+            ControlModule.ComboLoad(_conn, ComboStatusCarreira, "select tag_statusCarreira, nome from status_carreira where ifnull(active,0) = 1 order by nome;", "tag_statusCarreira", "nome");
 
             //
             ControlModule.ComboLoadArray(new[] { ComboUfR, ComboUfC, ComboRgUf }, _conn, "select tag_uf, nome from uf order by nome;", "tag_uf", "tag_uf");

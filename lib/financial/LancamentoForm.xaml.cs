@@ -1,9 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Windows;
+using intnet22.lib.financial.domain;
 using intnet22.lib.general;
 using intnet22.lib.general.wpf;
 using MySql.Data.MySqlClient;
+using NHibernate;
+using NHibernate.Cfg;
+using Environment = System.Environment;
+
 // ReSharper disable All
 
 namespace intnet22.lib.financial
@@ -49,7 +54,31 @@ namespace intnet22.lib.financial
             //
             Load();
             Fill();
+
+            //
+            nh();
         }
+
+        //
+        private void nh()
+        {
+            var cfg = new Configuration();
+            cfg.Configure();
+            cfg.AddAssembly(typeof(Lancamento).Assembly);
+
+            //
+            System.Collections.IList siteList;
+            ISessionFactory factory = new NHibernate.Cfg.Configuration().Configure().BuildSessionFactory();
+            using (ISession session = factory.OpenSession())
+            {
+                ICriteria sc = session.CreateCriteria(typeof(Lancamento));
+                siteList = sc.List();
+                session.Close();
+            }
+
+            factory.Close();
+        }
+
 
         //
         private void Load()
@@ -93,7 +122,6 @@ namespace intnet22.lib.financial
             WpfModule.ControlFill(MaskVencimento, vo.DataVencimento);
             WpfModule.ControlFill(MaskBaixa, vo.DataBaixa);
             WpfModule.ControlFill(MaskReferencia, vo.MesAnoReferencia);
-
         }
 
 
@@ -138,8 +166,6 @@ namespace intnet22.lib.financial
                 Environment.Exit(1);
             }
         }
-
-
 
 
         private void Insert()

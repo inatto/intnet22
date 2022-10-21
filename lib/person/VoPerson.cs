@@ -29,9 +29,14 @@ namespace intnet22.lib.person
 
         //
         public string? Cpf { get; set; }
+
         public string? Nome { get; set; }
+
         public string? Fantasia { get; set; }
+
         public string? EmailPrincipal { get; set; }
+
+        public string? EmailComercial { get; set; }
 
         //
         public DateTime? DataNascimento { get; set; }
@@ -39,6 +44,7 @@ namespace intnet22.lib.person
 
         //
         public string? CelularPrincipal { get; set; }
+        public string? CelularPrincipal2 { get; set; }
         public string? CelularComercial { get; set; }
         public string? TelefoneResidencial { get; set; }
         public string? TelefoneComercial { get; set; }

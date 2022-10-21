@@ -1,11 +1,17 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using intnet22.lib.general;
 using intnet22.lib.general.wpf;
 using intnet22.lib.member;
 using intnet22.lib.person;
+using Microsoft.Win32;
 using MySql.Data.MySqlClient;
 
 // ReSharper disable LoopCanBeConvertedToQuery
@@ -31,11 +37,13 @@ namespace intnet22.lib.associate
             //
             InitializeComponent();
             GeneralModule.UrlIcon(ImgPessoal, "https://cdn-icons-png.flaticon.com/128/3917/3917711.png");
-            GeneralModule.UrlIcon(ImgVinculo, "https://cdn-icons-png.flaticon.com/128/3914/3914283.png");
+            // GeneralModule.UrlIcon(ImgVinculo, "https://cdn-icons-png.flaticon.com/128/3914/3914283.png");
             GeneralModule.UrlIcon(ImgFuncional, "https://cdn-icons-png.flaticon.com/128/3916/3916690.png");
             GeneralModule.UrlIcon(ImgEnderecos, "https://cdn-icons-png.flaticon.com/128/5074/5074235.png");
-            GeneralModule.UrlIcon(ImgInfo, "https://cdn-icons-png.flaticon.com/128/3916/3916607.png");
             GeneralModule.UrlIcon(ImgInstituidor, "https://cdn-icons-png.flaticon.com/128/3917/3917717.png");
+            GeneralModule.UrlIcon(ImgInfo, "https://cdn-icons-png.flaticon.com/128/3916/3916607.png");
+            GeneralModule.UrlIcon(ImgFiles, "https://cdn-icons-png.flaticon.com/128/3916/3916607.png");
+            GeneralModule.UrlIcon(ImgDependentes, "https://cdn-icons-png.flaticon.com/128/5069/5069169.png");
 
             //
             _conn = MySqlModule.Connectt();
@@ -46,6 +54,9 @@ namespace intnet22.lib.associate
             //
             Load();
             Fill();
+
+            //
+            FilesLoad();
 
             //
             TextCpf.Focus();
@@ -137,6 +148,7 @@ namespace intnet22.lib.associate
 
             //
             WpfModule.ControlFill(TextEmailPrincipal, person.EmailPrincipal);
+            WpfModule.ControlFill(TextEmailSecundario, person.EmailComercial);
             WpfModule.ControlFill(ComboSexo, person.TagSexo);
 
             //
@@ -148,7 +160,7 @@ namespace intnet22.lib.associate
             WpfModule.ControlFill(MaskCelularComercial, person.CelularComercial);
             WpfModule.ControlFill(MaskTelefoneResidencial, person.TelefoneResidencial);
             WpfModule.ControlFill(MaskTelefoneComercial, person.TelefoneComercial);
-            WpfModule.ControlFill(MaskTelefoneComercial2, person.TelefoneComercial2);
+            // WpfModule.ControlFill(MaskTelefoneComercial2, person.TelefoneComercial2);
             WpfModule.ControlFill(MaskTelefoneExtra, person.TelefoneExtra);
 
             //
@@ -273,6 +285,7 @@ namespace intnet22.lib.associate
                 $" update pessoa set " +
                 $"  nome=@@ " +
                 $", emailPrincipal=@@ " +
+                $", emailComercial=@@ " +
                 $", cpf=@@ " +
                 $", dataNascimento=@@ " +
                 $", tag_sexo=@@ " +
@@ -283,7 +296,6 @@ namespace intnet22.lib.associate
                 $", celularComercial=@@ " +
                 $", telefoneResidencial=@@ " +
                 $", telefoneComercial=@@ " +
-                $", telefoneComercial2=@@ " +
                 $", telefoneExtra=@@ " +
                 $", flagNaoEnviarEmail=@@ " +
                 $", naturalidade=@@ " +
@@ -311,6 +323,7 @@ namespace intnet22.lib.associate
             MySqlModule.AddParameter(command, "@nome", TextNome);
             MySqlModule.AddParameter(command, "@dataNascimento", MaskDataNascimento);
             MySqlModule.AddParameter(command, "@emailPrincipal", TextEmailPrincipal);
+            MySqlModule.AddParameter(command, "@emailComercial", TextEmailSecundario);
             // MySqlModule.AddParameter(command, "@fantasia", TextApelido);
             MySqlModule.AddParameter(command, "@tag_sexo", ComboSexo);
             MySqlModule.AddParameter(command, "@tag_estadoCivil", ComboEstadoCivil);
@@ -320,7 +333,7 @@ namespace intnet22.lib.associate
             MySqlModule.AddParameter(command, "@celularComercial", MaskCelularComercial);
             MySqlModule.AddParameter(command, "@telefoneResidencial", MaskTelefoneResidencial);
             MySqlModule.AddParameter(command, "@telefoneComercial", MaskTelefoneComercial);
-            MySqlModule.AddParameter(command, "@telefoneComercial2", MaskTelefoneComercial2);
+            // MySqlModule.AddParameter(command, "@telefoneComercial2", MaskTelefoneComercial2);
             MySqlModule.AddParameter(command, "@telefoneExtra", MaskTelefoneExtra);
             MySqlModule.AddParameter(command, "@flagNaoEnviarEmail", CheckNaoMarketing);
 
@@ -396,6 +409,10 @@ namespace intnet22.lib.associate
         {
             //
             TplInstituidor.Parameters(command);
+
+            //
+            if (CheckFalecido.IsChecked == true) CheckVinculoAtivo.IsChecked = false;
+            if (MaskDataDesfiliacao.Text != "__/__/____") CheckVinculoAtivo.IsChecked = false;
 
             //
             MySqlModule.AddParameter(command, "@active", CheckVinculoAtivo);
@@ -499,5 +516,121 @@ namespace intnet22.lib.associate
             MySqlModule.AddParameter(command, "@numero", TextNrC);
             MySqlModule.AddParameter(command, "@complemento", TextCompC);
         }
+
+
+        private void FileUploadButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            //
+            var fileDialog = new OpenFileDialog();
+            // fileDialog.DefaultExt = ".txt"; // Required file extension
+            // fileDialog.Filter = "Text documents (.txt)|*.txt"; // Optional file extensions
+            fileDialog.Multiselect = true;
+
+            var a = fileDialog.ShowDialog();
+            if (a.HasValue && a.Value)
+            {
+                // verifica/cria diretorio upload
+                var fileData = AppDomain.CurrentDomain.BaseDirectory + "\\file_data\\" + _member.IdMembro;
+                if (!Directory.Exists(fileData)) Directory.CreateDirectory(fileData);
+
+                //
+                var index = 0;
+                foreach (var file in fileDialog.FileNames)
+                {
+                    var newPath = fileData + "\\" + fileDialog.SafeFileNames[index];
+                    if (!File.Exists(newPath)) File.Copy(file, newPath);
+                    index++;
+                }
+
+                //
+                // var sr = new StreamReader(fileDialog.FileName);
+                // MessageBox.Show(AppDomain.CurrentDomain.BaseDirectory);
+                // MessageBox.Show(sr.ReadToEnd());
+                // sr.Close();
+            }
+
+            FilesLoad();
+        }
+
+        private void FilesLoad()
+        {
+           //
+            var fileData = AppDomain.CurrentDomain.BaseDirectory + "\\file_data\\" + _member.IdMembro;
+            if (!Directory.Exists(fileData)) return;
+
+            //
+            FilesListBox.Items.Clear();
+
+            //
+            foreach (var file in Directory.GetFiles(fileData))
+            {
+                var fileName = Path.GetFileName(file);
+
+                //
+                var item = new ItemCombo();
+                item.valor = file;
+                item.texto = fileName;
+
+                //
+                FilesListBox.Items.Add(item);
+                // MessageBox.Show(fileName);
+            }
+
+        }
+
+        private void FilesListBox_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            //
+            var item = (ItemCombo)((ListBox)sender).SelectedItem;
+            if (item.valor == null) return;
+
+            //
+            OpenWithDefaultProgram(item.valor);
+        }
+
+
+        private static void OpenWithDefaultProgram(string path)
+        {
+            var p = new Process();
+            p.StartInfo = new ProcessStartInfo(path);
+            p.StartInfo.UseShellExecute = true;
+            p.Start();
+        }
+
+        [SuppressMessage("ReSharper", "SwitchStatementMissingSomeEnumCasesNoDefault")]
+        private void FileDeleteButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            //
+            var item = (ItemCombo)(FilesListBox).SelectedItem;
+            var result = MessageBox.Show($@"Remover o arquivo {item.texto}?", "Confirmar remoção", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.Yes);
+
+            //
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+
+                    //
+                    if (item.valor == null) return;
+
+                    // remove se arquivo existir
+                    if (File.Exists(item.valor)) File.Delete(item.valor);
+
+                    // recarrega
+                    FilesLoad();
+
+                    break;
+                case MessageBoxResult.No:
+                    // User pressed No
+                    break;
+            }
+        }
+    }
+
+    internal class MessageBoxButtons
+    {
+    }
+
+    internal class DialogResult
+    {
     }
 }

@@ -16,4 +16,16 @@
       </Reference>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="NHibernate" Version="5.3.13" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Remove="lib\financial\Window1.xaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="lib\financial\Window1.xaml.cs" />
+    </ItemGroup>
+
 </Project>
