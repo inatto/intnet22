@@ -55,13 +55,18 @@ namespace intnet22.lib.associate
                 uf = ComboUfRes.SelectedValue.ToString();
 
             //
+            var memberActive = "";
+            if (CheckAtivo.IsChecked == true) memberActive = "1";
+
+            //
             var search = TextLocalizar.Text;
             var sql = $@"    select * from vw_associado
                             where 1 
                             and (
                                 nome like '%{search}%' or cpf like '%{search}%' or matriculaOrgao like '%{search}%' or tag_statusCarreira like '%{search}%'  
                             ) 
-                            and (ufResidencial = '{uf}' or '{uf}' = '')  
+                            and ('{uf}' = ''    or ufResidencial = '{uf}')  
+                            and ('{memberActive}' = '' or ifnull(active, 0) = '{memberActive}')
                             order by nome"; // +
 
 

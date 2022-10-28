@@ -10,7 +10,7 @@
                    mc:Ignorable="d"
                    ResizeMode="NoResize"
                    WindowStyle="ThreeDBorderWindow"
-                   Title="Associado" Width="900" Height="720" Padding="0"
+                   Title="Associado" Width="1000" Height="720" Padding="0"
                    KeyDown="Window_KeyDown">
 
     <Window.Resources>
@@ -26,7 +26,7 @@
         <TabControl BorderThickness="1" Padding="0" Background="#eeeeee">
 
             <!-- Dados pessoais -->
-            <TabItem>
+            <TabItem IsSelected="True">
 
                 <TabItem.Header>
                     <StackPanel>
@@ -35,47 +35,67 @@
                     </StackPanel>
                 </TabItem.Header>
 
+
+                <!-- Secao Vínculo -->
                 <StackPanel Margin="20">
 
-                    <Label Style="{StaticResource CaptionStyle}" Content="Vínculo" />
+                    <WrapPanel>
 
-                    <WrapPanel Margin="0,10,0,0" />
-                    <StackPanel Orientation="Horizontal">
+                        <StackPanel>
+                            <Label Style="{StaticResource CaptionStyle}" Content="Vínculo" />
+                        </StackPanel>
 
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label x:Name="LblVinculoAtivo" Style="{StaticResource LabelStyle}" Content="Vínculo associativo" />
-                            <CheckBox x:Name="CheckVinculoAtivo" Click="CheckVinculoAtivo_OnClick" />
-                        </WrapPanel>
+                        <StackPanel Margin="20,0,0,0" />
+                        <StackPanel>
 
-                        <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label Style="{StaticResource LabelStyle}" Content="Não enviar e-mail marketing" />
-                            <CheckBox x:Name="CheckNaoMarketing" />
-                        </WrapPanel>
+                            <WrapPanel>
 
-                    </StackPanel>
+                                <StackPanel>
+                                    <Label x:Name="LblVinculoAtivo" Style="{StaticResource LabelStyle}" Content="Vínculo associativo" />
+                                    <CheckBox x:Name="CheckVinculoAtivo" Click="CheckVinculoAtivo_OnClick" />
+                                </StackPanel>
 
-                    <WrapPanel Margin="0,10,0,0" />
-                    <StackPanel Orientation="Horizontal">
+                                <WrapPanel Margin="20,0,0,0" />
+                                <StackPanel>
+                                    <Label Style="{StaticResource LabelStyle}" Content="Não enviar e-mail marketing" />
+                                    <CheckBox x:Name="CheckNaoMarketing" />
+                                </StackPanel>
 
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label Style="{StaticResource LabelStyle}" Content="Status funcional" />
-                            <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboStatusCarreira" Width="180" />
-                        </WrapPanel>
+                            </WrapPanel>
 
-                        <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label Style="{StaticResource LabelStyle}" Content="Status associativo" />
-                            <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboStatusAssociativo" Width="180" />
-                        </WrapPanel>
+                            <WrapPanel Margin="0,10,0,0" />
+                            <WrapPanel>
 
-                        <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label Style="{StaticResource LabelStyle}" Content="Como enviar o Jornal da ANPPREV e demais materiais de comunicação?" />
-                            <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboComoEnviarJornal" Width="400" />
-                        </WrapPanel>
+                                <StackPanel>
+                                    <Label Style="{StaticResource LabelStyle}" Content="Status funcional" />
+                                    <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboStatusCarreira" Width="180" />
+                                </StackPanel>
 
-                    </StackPanel>
+                                <WrapPanel Margin="20,0,0,0" />
+                                <StackPanel>
+                                    <Label Style="{StaticResource LabelStyle}" Content="Status associativo" />
+                                    <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboStatusAssociativo" Width="180" />
+                                </StackPanel>
+
+                                <WrapPanel Margin="20,0,0,0" />
+                                <StackPanel>
+                                    <Label Style="{StaticResource LabelStyle}" Content="Como enviar o Jornal da ANPPREV e demais materiais de comunicação?" />
+                                    <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboComoEnviarJornal" Width="400" />
+                                </StackPanel>
+
+                            </WrapPanel>
+
+
+
+
+
+                        </StackPanel>
+
+                    </WrapPanel>
+
+
+
+
 
 
                     <WrapPanel Margin="0,10,0,0" />
@@ -83,51 +103,63 @@
                     <WrapPanel Margin="0,10,0,0" />
                     <StackPanel Orientation="Horizontal">
 
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="CPF" />
                             <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="TextCpf" Mask="000\.000\.000-00" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Sexo" />
                             <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboSexo" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Estado civil" />
                             <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboEstadoCivil" Width="220" />
-                        </WrapPanel>
+                        </StackPanel>
 
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Nascimento" />
                             <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskDataNascimento" Mask="00/00/0000" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Data do óbito" />
                             <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskDataObito" Mask="00/00/0000" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Falecido" />
                             <CheckBox Style="{StaticResource CheckStyle}" x:Name="CheckFalecido" />
-                        </WrapPanel>
+                        </StackPanel>
 
                     </StackPanel>
 
                     <WrapPanel Margin="0,10,0,0" />
                     <StackPanel Orientation="Horizontal">
 
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Nome completo" />
-                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextNome" Width="340" />
-                        </WrapPanel>
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextNome" Width="350" />
+                        </StackPanel>
+
+                        <WrapPanel Margin="20,0,0,0" />
+                        <StackPanel>
+                            <Label Style="{StaticResource LabelStyle}" Content="E-mail principal" />
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextEmailPrincipal" Width="260" />
+                        </StackPanel>
+
+                        <WrapPanel Margin="20,0,0,0" />
+                        <StackPanel>
+                            <Label Style="{StaticResource LabelStyle}" Content="E-mail secundário" />
+                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextEmailSecundario" Width="260" />
+                        </StackPanel>
 
                         <!-- <WrapPanel Margin="20,0,0,0"></WrapPanel> -->
                         <!-- <WrapPanel Style="{StaticResource WrapStyle}"> -->
@@ -137,69 +169,145 @@
 
                     </StackPanel>
 
-                    <WrapPanel Margin="0,10,0,0" />
-                    <StackPanel Orientation="Horizontal">
 
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label Style="{StaticResource LabelStyle}" Content="E-mail principal" />
-                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextEmailPrincipal" Width="340" />
-                        </WrapPanel>
-
-                        <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label Style="{StaticResource LabelStyle}" Content="E-mail secundário" />
-                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextEmailSecundario" Width="340" />
-                        </WrapPanel>
-
-                    </StackPanel>
-
-
-                    <WrapPanel Margin="0,10,0,0" />
-                    <WrapPanel Margin="0,10,0,0" />
+                    <WrapPanel Margin="0,20,0,0" />
                     <Label Style="{StaticResource CaptionStyle}" Content="Telefones" />
 
                     <WrapPanel Margin="0,10,0,0" />
                     <StackPanel Orientation="Horizontal">
 
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Celular principal" />
                             <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskCelularPrincipal" Mask="(00) 90000-0000" Width="120" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label Style="{StaticResource LabelStyle}" Content="Celular recado" />
-                            <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskCelularComercial" Mask="(00) 90000-0000" Width="120" />
-                        </WrapPanel>
+                        <StackPanel>
+                            <Label Style="{StaticResource LabelStyle}" Content="Telefone principal" />
+                            <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskTelefoneResidencial" Mask="(00) 90000-0000" Width="120" />
+                        </StackPanel>
+
+                        <WrapPanel Margin="20,0,0,0" />
+                        <StackPanel>
+                            <Label Style="{StaticResource LabelStyle}" Content="Telefone extra" />
+                            <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskTelefoneExtra" Mask="(00) 90000-0000" Width="120" />
+                        </StackPanel>
+
+                        <!-- <WrapPanel Margin="20,0,0,0" /> -->
+                        <!-- <StackPanel> -->
+                        <!-- <Label Style="{StaticResource LabelStyle}" Content="Celular recado" /> -->
+                        <!-- <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskCelularComercial" Mask="(00) 90000-0000" Width="120" /> -->
+                        <!-- </StackPanel> -->
 
                     </StackPanel>
+
+                    <!-- <WrapPanel Margin="0,10,0,0" /> -->
+                    <!-- <StackPanel Orientation="Horizontal"> -->
+
+                    <!-- <WrapPanel Margin="20,0,0,0" /> -->
+                    <!-- <StackPanel> -->
+                    <!-- <Label Style="{StaticResource LabelStyle}" Content="Telefone recado" /> -->
+                    <!-- <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskTelefoneComercial" Mask="(00) 90000-0000" Width="120" /> -->
+                    <!-- </StackPanel> -->
+
+                    <!-- </StackPanel> -->
+
+
+                    <WrapPanel Margin="0,20,0,0" />
+                    <Label Style="{StaticResource CaptionStyle}" Content="Endereço residencial" />
 
                     <WrapPanel Margin="0,10,0,0" />
                     <StackPanel Orientation="Horizontal">
 
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label Style="{StaticResource LabelStyle}" Content="Telefone principal" />
-                            <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskTelefoneResidencial" Mask="(00) 90000-0000" Width="120" />
-                        </WrapPanel>
+                        <TabControl BorderThickness="1" Padding="0" Background="#eeeeee">
 
-                        <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label Style="{StaticResource LabelStyle}" Content="Telefone recado" />
-                            <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskTelefoneComercial" Mask="(00) 90000-0000" Width="120" />
-                        </WrapPanel>
 
-                        <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label Style="{StaticResource LabelStyle}" Content="Telefone extra" />
-                            <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskTelefoneExtra" Mask="(00) 90000-0000" Width="120" />
-                        </WrapPanel>
+                            <TabItem IsSelected="True">
+
+                                <TabItem.Header>
+                                    <StackPanel>
+                                        <TextBlock Text="Endereço residencial" FontSize="12" />
+                                    </StackPanel>
+                                </TabItem.Header>
+
+                                <StackPanel>
+
+                                    <WrapPanel Margin="0,10,0,0" />
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <StackPanel>
+                                            <Label Style="{StaticResource LabelStyle}" Content="CEP" />
+                                            <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskCepR1" Mask="00\.000-000" />
+                                        </StackPanel>
+
+                                        <WrapPanel Margin="20,0,0,0" />
+                                        <StackPanel>
+                                            <Label Style="{StaticResource LabelStyle}" Content="UF" />
+                                            <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboUfR1" />
+                                        </StackPanel>
+
+                                        <WrapPanel Margin="20,0,0,0" />
+                                        <StackPanel>
+                                            <Label Style="{StaticResource LabelStyle}" Content="Cidade" />
+                                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextCidadeR1" Width="200" />
+                                        </StackPanel>
+
+                                        <WrapPanel Margin="20,0,0,0" />
+                                        <StackPanel>
+                                            <Label Style="{StaticResource LabelStyle}" Content="Bairro" />
+                                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextBairroR1" Width="200" />
+                                        </StackPanel>
+
+                                    </StackPanel>
+
+                                    <WrapPanel Margin="0,10,0,0" />
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <StackPanel>
+                                            <Label Style="{StaticResource LabelStyle}" Content="Logradouro" />
+                                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextLogR1" Width="260" />
+                                        </StackPanel>
+
+                                        <WrapPanel Margin="20,0,0,0" />
+                                        <StackPanel>
+                                            <Label Style="{StaticResource LabelStyle}" Content="Nr" />
+                                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextNrR1" />
+                                        </StackPanel>
+
+                                        <WrapPanel Margin="20,0,0,0" />
+                                        <StackPanel>
+                                            <Label Style="{StaticResource LabelStyle}" Content="Complemento" />
+                                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextCompR1" Width="260" />
+                                        </StackPanel>
+
+                                    </StackPanel>
+
+
+                                </StackPanel>
+
+
+                            </TabItem>
+
+
+                            <TabItem>
+
+                                <TabItem.Header>
+                                    <StackPanel>
+                                        <TextBlock Text="Endereço funcional" FontSize="12" />
+                                    </StackPanel>
+                                </TabItem.Header>
+
+
+                            </TabItem>
+
+
+                        </TabControl>
 
 
                     </StackPanel>
 
 
                 </StackPanel>
-
 
             </TabItem>
 
@@ -219,60 +327,60 @@
                     <Label Style="{StaticResource CaptionStyle}" Content="Principal" />
 
                     <WrapPanel Margin="0,5,0,0" />
-                    <StackPanel Orientation="Horizontal">
+                    <WrapPanel>
 
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Carreira" />
                             <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboCarreira" Width="240" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Situação da mensalidade" />
                             <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboSituacaoMensalidade" Width="240" />
-                        </WrapPanel>
+                        </StackPanel>
 
-                    </StackPanel>
+                    </WrapPanel>
 
                     <WrapPanel Margin="0,10,0,0" />
-                    <StackPanel Orientation="Horizontal">
+                    <WrapPanel>
 
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label Style="{StaticResource LabelStyle}" Content="SIAPE/Matrícula" />
-                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextMatricula" Width="110" />
-                        </WrapPanel>
+                        <!-- <StackPanel> -->
+                        <!-- <Label Style="{StaticResource LabelStyle}" Content="SIAPE/Matrícula" /> -->
+                        <!-- <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextMatricula" Width="110" /> -->
+                        <!-- </StackPanel> -->
 
-                        <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label Style="{StaticResource LabelStyle}" Content="Nº Contrato" />
-                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextNrContrato" Width="110" />
-                        </WrapPanel>
+                        <!-- <StackPanel Margin="20,0,0,0" /> -->
+                        <!-- <StackPanel> -->
+                        <!-- <Label Style="{StaticResource LabelStyle}" Content="Nº Contrato" /> -->
+                        <!-- <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextNrContrato" Width="110" /> -->
+                        <!-- </StackPanel> -->
 
-                        <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <!-- <WrapPanel Margin="20,0,0,0" /> -->
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Mensalidade" />
                             <general:MoneyBox Style="{StaticResource TextBoxStyle}" x:Name="MoneyMensalidade" Width="110" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Data de ingresso" />
                             <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskDataIngresso" Mask="00/00/0000" Width="110" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Data filiação" />
                             <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskDataFiliacao" Mask="00/00/0000" Width="110" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Data desfiliação" />
                             <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskDataDesfiliacao" Mask="00/00/0000" Width="110" />
-                        </WrapPanel>
+                        </StackPanel>
 
-                    </StackPanel>
+                    </WrapPanel>
 
 
                     <!-- - -->
@@ -280,26 +388,26 @@
                     <Label Style="{StaticResource CaptionStyle}" Content="Aposentadoria" />
 
                     <WrapPanel Margin="0,5,0,0" />
-                    <StackPanel Orientation="Horizontal">
+                    <WrapPanel>
 
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Data" />
                             <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskDataAposentadoria" Mask="00/00/0000" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Tipo" />
                             <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboTipoAposentadoria" Width="240" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Fração" />
                             <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextFracaoAposentadoria" Width="120" />
-                        </WrapPanel>
+                        </StackPanel>
 
-                    </StackPanel>
+                    </WrapPanel>
 
 
                     <!-- - -->
@@ -307,24 +415,24 @@
                     <Label Style="{StaticResource CaptionStyle}" Content="Órgão público" />
 
                     <WrapPanel Margin="0,5,0,0" />
-                    <StackPanel Orientation="Horizontal">
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                    <WrapPanel>
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Código do órgão" />
                             <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskCodigoOrgao" Mask="9999999999" TextAlignment="Right" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Nome do órgão" />
                             <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextNomeOrgao" Width="370" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Sigla do órgão" />
                             <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextSiglaOrgao" Width="240" />
-                        </WrapPanel>
-                    </StackPanel>
+                        </StackPanel>
+                    </WrapPanel>
 
 
                     <!-- - -->
@@ -332,56 +440,53 @@
                     <Label Style="{StaticResource CaptionStyle}" Content="Unidade pagadora" />
 
                     <WrapPanel Margin="0,5,0,0" />
-                    <StackPanel Orientation="Horizontal">
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                    <WrapPanel>
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Código da UPAG" />
                             <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskCodigoUpag" Mask="9999999999" TextAlignment="Right" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Nome da UPAG" />
                             <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextNomeUpag" Width="370" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="Sigla da UPAG" />
                             <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextSiglaUpag" Width="110" />
-                        </WrapPanel>
+                        </StackPanel>
 
                         <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
+                        <StackPanel>
                             <Label Style="{StaticResource LabelStyle}" Content="UF da UPAG" />
                             <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextUfUpag" Width="110" MaxLength="2" />
-                        </WrapPanel>
-                    </StackPanel>
+                        </StackPanel>
+                    </WrapPanel>
 
 
                     <!-- - -->
-                    <WrapPanel Margin="0,20,0,0" />
-                    <Label Style="{StaticResource CaptionStyle}" Content="Unidade organizacional" />
+                    <!-- <WrapPanel Margin="0,20,0,0" /> -->
+                    <!-- <Label Style="{StaticResource CaptionStyle}" Content="Unidade organizacional" /> -->
 
-                    <WrapPanel Margin="0,5,0,0" />
-                    <StackPanel Orientation="Horizontal">
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label Style="{StaticResource LabelStyle}" Content="Código UORG" />
-                            <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskCodigoUorg" Mask="9999999999" TextAlignment="Right" />
-                        </WrapPanel>
-
-                        <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label Style="{StaticResource LabelStyle}" Content="Nome UORG" />
-                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextNomeUorg" Width="370" />
-                        </WrapPanel>
-
-                        <WrapPanel Margin="20,0,0,0" />
-                        <WrapPanel Style="{StaticResource WrapStyle}">
-                            <Label Style="{StaticResource LabelStyle}" Content="UF UORG" />
-                            <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextUfUorg" Width="240" MaxLength="2" />
-                        </WrapPanel>
-                    </StackPanel>
-
+                    <!-- <WrapPanel Margin="0,5,0,0" /> -->
+                    <!-- <WrapPanel> -->
+                    <!-- <StackPanel> -->
+                    <!-- <Label Style="{StaticResource LabelStyle}" Content="Código UORG" /> -->
+                    <!-- <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskCodigoUorg" Mask="9999999999" TextAlignment="Right" /> -->
+                    <!-- </StackPanel> -->
+                    <!-- <WrapPanel Margin="20,0,0,0" /> -->
+                    <!-- <StackPanel> -->
+                    <!-- <Label Style="{StaticResource LabelStyle}" Content="Nome UORG" /> -->
+                    <!-- <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextNomeUorg" Width="370" /> -->
+                    <!-- </StackPanel> -->
+                    <!-- <WrapPanel Margin="20,0,0,0" /> -->
+                    <!-- <StackPanel> -->
+                    <!-- <Label Style="{StaticResource LabelStyle}" Content="UF UORG" /> -->
+                    <!-- <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextUfUorg" Width="240" MaxLength="2" /> -->
+                    <!-- </StackPanel> -->
+                    <!-- </WrapPanel> -->
 
                 </StackPanel>
 
@@ -404,7 +509,7 @@
 
 
             <!-- Dependentes -->
-            <TabItem IsSelected="True">
+            <TabItem>
 
                 <TabItem.Header>
                     <StackPanel>

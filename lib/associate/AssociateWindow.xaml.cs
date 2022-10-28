@@ -64,8 +64,8 @@ namespace intnet22.lib.associate
 
         private void CheckVinculoAtivo_OnClick(object? sender = null, RoutedEventArgs? e = null)
         {
-            LblVinculoAtivo.Foreground = Brushes.White;
-            LblVinculoAtivo.Background = CheckVinculoAtivo.IsChecked == true ? Brushes.Green : Brushes.DarkRed;
+            // LblVinculoAtivo.Foreground = Brushes.;
+            LblVinculoAtivo.Foreground = CheckVinculoAtivo.IsChecked == true ? Brushes.Green : Brushes.Red;
         }
 
         private void Fill()
@@ -98,9 +98,9 @@ namespace intnet22.lib.associate
             WpfModule.ControlFill(ComboSituacaoMensalidade, member.SituacaoMensalidade);
 
             //
-            WpfModule.ControlFill(TextMatricula, member.MatriculaOrgao);
-            WpfModule.ControlFill(TextMatricula, member.MatriculaOrgao);
-            WpfModule.ControlFill(TextNrContrato, member.NrContrato);
+            // WpfModule.ControlFill(TextMatricula, member.MatriculaOrgao);
+            // WpfModule.ControlFill(TextMatricula, member.MatriculaOrgao);
+            // WpfModule.ControlFill(TextNrContrato, member.NrContrato);
             WpfModule.ControlFill(MoneyMensalidade, member.ValorMensalidade);
             WpfModule.ControlFill(MaskDataIngresso, member.DataIngresso);
             WpfModule.ControlFill(MaskDataFiliacao, member.DataFiliacao);
@@ -118,9 +118,9 @@ namespace intnet22.lib.associate
             WpfModule.ControlFill(TextUfUpag, member.UfUnidadePagadora);
 
             //
-            WpfModule.ControlFill(MaskCodigoUorg, member.CodigoUnidadeOrganizacional);
-            WpfModule.ControlFill(TextNomeUorg, member.NomeUnidadeOrganizacional);
-            WpfModule.ControlFill(TextUfUorg, member.UfUnidadeOrganizacional);
+            // WpfModule.ControlFill(MaskCodigoUorg, member.CodigoUnidadeOrganizacional);
+            // WpfModule.ControlFill(TextNomeUorg, member.NomeUnidadeOrganizacional);
+            // WpfModule.ControlFill(TextUfUorg, member.UfUnidadeOrganizacional);
 
             //
             WpfModule.ControlFill(MaskDataAposentadoria, member.DataAposentadoria);
@@ -375,8 +375,8 @@ namespace intnet22.lib.associate
                 $", id_carreiraServidor = @@ " +
                 $", tag_statusCarreira = @@ " +
                 $", situacaoMensalidade = @@ " +
-                $", matriculaOrgao = @@ " +
-                $", nrContrato = @@ " +
+                // $", matriculaOrgao = @@ " +
+                // $", nrContrato = @@ " +
                 $", valorMensalidade = @@ " +
                 $", dataIngresso = @@ " +
                 $", dataFiliacao = @@ " +
@@ -388,9 +388,9 @@ namespace intnet22.lib.associate
                 $", nomeUnidadePagadora = @@ " +
                 $", siglaUnidadePagadora = @@ " +
                 $", ufUnidadePagadora = @@ " +
-                $", codigoUnidadeOrganizacional = @@ " +
-                $", nomeUnidadeOrganizacional = @@ " +
-                $", ufUnidadeOrganizacional = @@ " +
+                // $", codigoUnidadeOrganizacional = @@ " +
+                // $", nomeUnidadeOrganizacional = @@ " +
+                // $", ufUnidadeOrganizacional = @@ " +
                 $", codigoInstituidorPensao = @@ " +
                 $", nomeInstituidorPensao = @@ " +
                 $", dataAposentadoria = @@ " +
@@ -422,8 +422,8 @@ namespace intnet22.lib.associate
             MySqlModule.AddParameter(command, "@id_carreiraServidor", ComboCarreira);
             MySqlModule.AddParameter(command, "@tag_statusCarreira", ComboStatusCarreira);
             MySqlModule.AddParameter(command, "@situacaoMensalidade", ComboSituacaoMensalidade);
-            MySqlModule.AddParameter(command, "@matriculaOrgao", TextMatricula);
-            MySqlModule.AddParameter(command, "@nrContrato", TextNrContrato);
+            // MySqlModule.AddParameter(command, "@matriculaOrgao", TextMatricula);
+            // MySqlModule.AddParameter(command, "@nrContrato", TextNrContrato);
             MySqlModule.AddParameter(command, "@valorMensalidade", MoneyMensalidade);
             MySqlModule.AddParameter(command, "@dataIngresso", MaskDataIngresso);
             MySqlModule.AddParameter(command, "@dataFiliacao", MaskDataFiliacao);
@@ -435,9 +435,9 @@ namespace intnet22.lib.associate
             MySqlModule.AddParameter(command, "@nomeUnidadePagadora", TextNomeUpag);
             MySqlModule.AddParameter(command, "@siglaUnidadePagadora", TextSiglaUpag);
             MySqlModule.AddParameter(command, "@ufUnidadePagadora", TextUfUpag);
-            MySqlModule.AddParameter(command, "@codigoUnidadeOrganizacional", MaskCodigoUorg);
-            MySqlModule.AddParameter(command, "@nomeUnidadeOrganizacional", TextNomeUorg);
-            MySqlModule.AddParameter(command, "@ufUnidadeOrganizacional", TextUfUorg);
+            // MySqlModule.AddParameter(command, "@codigoUnidadeOrganizacional", MaskCodigoUorg);
+            // MySqlModule.AddParameter(command, "@nomeUnidadeOrganizacional", TextNomeUorg);
+            // MySqlModule.AddParameter(command, "@ufUnidadeOrganizacional", TextUfUorg);
             MySqlModule.AddParameter(command, "@dataAposentadoria", MaskDataAposentadoria);
             MySqlModule.AddParameter(command, "@tipoAposentadoria", ComboTipoAposentadoria);
             MySqlModule.AddParameter(command, "@fracaoAposentadoria", TextFracaoAposentadoria);
