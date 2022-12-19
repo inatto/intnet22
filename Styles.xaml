@@ -5,9 +5,17 @@
         <Setter Property="Padding" Value="2" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="DemiBold" />
     </Style>
+
+    <Style x:Key="PickerStyle" TargetType="DatePicker">
+        <Setter Property="Padding" Value="0,4,0,0" />
+        <Setter Property="Margin" Value="28,0,0,0" />
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="30" />
+    </Style>
+
     <Style x:Key="LabelStyle" TargetType="Label">
         <Setter Property="Padding" Value="2" />
         <Setter Property="HorizontalAlignment" Value="Left" />
@@ -26,6 +34,17 @@
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Top" />
     </Style>
+
+    <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="MaxLength" Value="255" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+
+
     <Style x:Key="ComboStyle" TargetType="ComboBox">
         <Setter Property="Width" Value="100" />
         <Setter Property="Height" Value="30" />
@@ -83,6 +102,10 @@
 
     <Style x:Key="Stack20" TargetType="StackPanel">
         <Setter Property="Margin" Value="20,0,0,0" />
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="RightCell">
+        <Setter Property="TextAlignment" Value="Right"/>
     </Style>
 
 

@@ -43,11 +43,11 @@ namespace intnet22.lib.person
         public DateTime? DataObito { get; set; }
 
         //
-        public string? CelularPrincipal { get; set; }
-        public string? CelularPrincipal2 { get; set; }
+        public string? CelularPrincipal { get; set; } // Principal
+        public string? CelularPrincipal2 { get; set; } // Recado
         public string? CelularComercial { get; set; }
-        public string? TelefoneResidencial { get; set; }
-        public string? TelefoneComercial { get; set; }
+        public string? TelefoneResidencial { get; set; } // Principal
+        public string? TelefoneComercial { get; set; } // Recado
         public string? TelefoneComercial2 { get; set; }
         public string? TelefoneExtra { get; set; }
 
@@ -64,6 +64,7 @@ namespace intnet22.lib.person
         public string? RgUf { get; set; }
         public DateTime? RgEmissao { get; set; }
         public string? OabNr { get; set; }
+        public string? OabUf { get; set; }
 
         //
         public string? FacebookUri { get; set; }

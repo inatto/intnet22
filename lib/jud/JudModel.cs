@@ -42,7 +42,7 @@ namespace intnet22.lib.financial
             //
             string sql = @"select 
                             id_processoJud, tituloProcesso, nrProcessoExecucao, dataAjuizamento, dataTransitoJulgado, nrProcessoNovo,
-                            nrProcessoOriginario, tempVaraJud, tempEscritorioAdv, ObjetoJud, metaTitle, nomeJuiz 
+                            nrProcessoOriginario, tempVaraJud, tempEscritorioAdv, ObjetoJud, nomeJuiz, ultimaMovimentacao, metaTitle, metaObs, insertIp, insertDate 
                             from processo_jud where id_processoJud = " + id;
 
             //
@@ -70,8 +70,13 @@ namespace intnet22.lib.financial
             vo.ObjetoJud = reader["ObjetoJud"].ToString();
             vo.MetaTitle = reader["metaTitle"].ToString();
             vo.NomeJuiz = reader["nomeJuiz"].ToString();
+            vo.UltimaMovimentacao = reader["ultimaMovimentacao"].ToString();
+            vo.MetaObs = reader["metaObs"].ToString(); // TODO requerido
+            vo.MetaTitle = reader["metaTitle"].ToString(); // TODO parte autora
+            vo.InsertIp = reader["insertIp"].ToString();
 
             //
+            vo.InsertDate = MySqlModule.MyDateToDateTime(reader["insertDate"].ToString());
             vo.DataAjuizamento = MySqlModule.MyDateToDateTime(reader["dataAjuizamento"].ToString());
             vo.DataTransitoJulgado = MySqlModule.MyDateToDateTime(reader["dataTransitoJulgado"].ToString());
 
@@ -86,15 +91,17 @@ namespace intnet22.lib.financial
 
             //
             vo.VoMember = new VoMember();
+            vo.VoMember.IdMembro =(int)(uint)reader["id_membro"];
             vo.VoMember.VoPerson = new VoPerson();
             vo.VoMember.VoPerson.Nome = reader["nome"].ToString();
 
             //
+            vo.IdMembro =(int)(uint)reader["id_membro"];
             vo.NumeroExecucao = reader["numeroExecucao"].ToString();
             vo.NumeroEmbargos = reader["numeroEmbargos"].ToString();
             vo.NrPrecatorioJud = reader["nrPrecatorioJud"].ToString();
             vo.SituacaoSireaExequente = reader["situacaoSireaExequente"].ToString();
-            vo.UltimoTramite = "*** Verificar se pertence ao processo ou à parte ***";
+            vo.UltimoTramite = "";
 
             //
             return vo;

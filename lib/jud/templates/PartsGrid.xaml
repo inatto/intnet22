@@ -8,13 +8,13 @@
 
 
 
-    <DataGrid.Columns>
+    <DataGrid.Columns >
         <DataGridTextColumn Header="Nome" Binding="{Binding VoMember.VoPerson.Nome}" />
         <DataGridTextColumn Header="Execução" Binding="{Binding NumeroExecucao}" />
         <DataGridTextColumn Header="Embargos" Binding="{Binding NumeroEmbargos}" />
         <DataGridTextColumn Header="Precatório" Binding="{Binding NrPrecatorioJud}" />
         <DataGridTextColumn Header="Status Migração (SIREA)" Binding="{Binding SituacaoSireaExequente}" />
-        <DataGridTextColumn Header="Última movimentação" Binding="{Binding UltimoTramite}" />
+        <!-- <DataGridTextColumn Header="Última movimentação" Binding="{Binding UltimoTramite}" /> -->
     </DataGrid.Columns>
 
 

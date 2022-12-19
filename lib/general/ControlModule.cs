@@ -38,6 +38,7 @@ namespace intnet22.lib.general
             if (owner is null) Application.Current.Shutdown(17261);
 
             //
+            window.ResizeMode = ResizeMode.CanResize;
             window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.WindowState = WindowState.Normal;
             window.Owner = owner;

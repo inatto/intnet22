@@ -26,8 +26,14 @@ namespace intnet22.lib.jud
         public string? TempEscritorioAdv { get; set; }
         public string? ObjetoJud { get; set; }
         public string? NomeJuiz { get; set; }
+        public string? UltimaMovimentacao { get; set; }
 
-        //
+        // TODO corrigir campos usados
+        public string? MetaObs { get; set; }
         public string? MetaTitle { get; set; }
+        //
+        public string? InsertIp { get; set; }
+        public DateTime? InsertDate { get; set; }
+
     }
 }

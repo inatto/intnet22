@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using intnet22.lib.general;
 using intnet22.lib.general.wpf;
 using intnet22.lib.jud;
@@ -50,7 +51,13 @@ namespace intnet22.lib.financial
             WpfModule.ControlFill(TextEscritorio, vo.TempEscritorioAdv);
             WpfModule.ControlFill(TextVara, vo.TempVaraJud);
             WpfModule.ControlFill(TextJuiz, vo.NomeJuiz);
-            WpfModule.ControlFill(TextDataAutuacao, vo.DataAjuizamento);
+            WpfModule.ControlFill(DataAutuacaoMask, vo.DataAjuizamento);
+            WpfModule.ControlFill(UltimaMovimentacaoText, vo.UltimaMovimentacao);
+            WpfModule.ControlFill(ParteAutoraText, vo.MetaTitle);
+            WpfModule.ControlFill(RequeridoText, vo.MetaObs);
+            //
+            WpfModule.ControlFill(TextoAvisoText, vo.InsertIp);
+            WpfModule.ControlFill(DataPrazoMask, vo.InsertDate);
         }
 
         private void OkButton_OnClick(object sender, RoutedEventArgs e)
@@ -72,6 +79,11 @@ namespace intnet22.lib.financial
                 $", tempVaraJud = @@ " +
                 $", nomeJuiz = @@ " +
                 $", dataAjuizamento = @@ " +
+                $", ultimaMovimentacao = @@ " +
+                $", metaObs = @@ " +
+                $", metaTitle = @@ " +
+                $", insertIp = @@ " +
+                $", insertDate = @@ " +
                 $" where id_processoJud = {Id}"
             );
 
@@ -91,8 +103,22 @@ namespace intnet22.lib.financial
             MySqlModule.AddParameter(command, "@tempEscritorioAdv", TextEscritorio);
             MySqlModule.AddParameter(command, "@tempVaraJud", TextVara);
             MySqlModule.AddParameter(command, "@nomeJuiz", TextJuiz);
-            MySqlModule.AddParameter(command, "@dataAjuizamento", TextDataAutuacao);
+            MySqlModule.AddParameter(command, "@dataAjuizamento", DataAutuacaoMask);
+            MySqlModule.AddParameter(command, "@ultimaMovimentacao", UltimaMovimentacaoText);
+            MySqlModule.AddParameter(command, "@metaObs", RequeridoText);
+            MySqlModule.AddParameter(command, "@metaTitle", ParteAutoraText);
+            MySqlModule.AddParameter(command, "@insertIp", TextoAvisoText);
+            MySqlModule.AddParameter(command, "@insertDate", DataPrazoMask);
         }
 
+        private void DataAutuacaoPicker_OnSelectedDateChanged(object? sender, SelectionChangedEventArgs e)
+        {
+            DataAutuacaoMask.Text = DataAutuacaoPicker.Text;
+        }
+
+        private void DataPrazoPicker_OnSelectedDateChanged(object? sender, SelectionChangedEventArgs e)
+        {
+            DataPrazoMask.Text = DataPrazoPicker.Text;
+        }
     }
 }

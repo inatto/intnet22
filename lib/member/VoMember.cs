@@ -22,6 +22,7 @@ namespace intnet22.lib.member
         //
         public long? IdMembroPai { get; set; }
         public VoMember? VoMembroPai { get; set; }
+        public string? Parentesco { get; set; }
 
         //
         public long IdPessoa { get; set; }
@@ -73,5 +74,8 @@ namespace intnet22.lib.member
         public DateTime? DataAposentadoria { get; set; }
         public string? TipoAposentadoria { get; set; }
         public string? FracaoAposentadoria { get; set; }
+
+        //
+        public string? _StrPensionista { get; set; }
     }
 }

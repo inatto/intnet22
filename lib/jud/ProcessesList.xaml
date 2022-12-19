@@ -44,6 +44,9 @@
                 <DataGridTextColumn Header="Nome do processo" Binding="{Binding TituloProcesso}" />
                 <DataGridTextColumn Header="Processo originário" Binding="{Binding NrProcessoOriginario}" />
                 <DataGridTextColumn Header="Nova numeração" Binding="{Binding NrProcessoNovo}" />
+                <DataGridTextColumn Header="Última movimentação" Binding="{Binding UltimaMovimentacao}" />
+                <DataGridTextColumn Header="Parte autora" Binding="{Binding MetaTitle}" />
+                <DataGridTextColumn Header="Requerido" Binding="{Binding MetaObs}" />
                 <!-- <DataGridTextColumn Header="Execução" Binding="{Binding NrProcessoExecucao}" /> -->
                 <!-- <DataGridTextColumn Header="Objeto" Binding="{Binding ObjetoJud}" /> -->
                 <!-- <DataGridTextColumn Header="Escritório" Binding="{Binding TempEscritorioAdv}" /> -->

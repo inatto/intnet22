@@ -1,0 +1,183 @@
+﻿<StackPanel x:Class="intnet22.lib.associate.templates.FuncionalPanel"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+            xmlns:general="clr-namespace:intnet22.lib.general"
+            Margin="0" Background="#eeeeee">
+
+    <StackPanel.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </StackPanel.Resources>
+
+    <!-- ________________________________________________________________________________________________________________________________________________________________________________ -->
+    <Label Style="{StaticResource CaptionStyle}" Content="Principal" />
+
+    <Border Background="White" Margin="0,4,0,0" CornerRadius="5">
+        <StackPanel Margin="10">
+
+            <!-- ===================================================================== -->
+            <WrapPanel>
+
+                <StackPanel>
+                    <Label Style="{StaticResource LabelStyle}" Content="Carreira" />
+                    <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboCarreira" Width="240" />
+                </StackPanel>
+
+                <StackPanel Margin="20,0,0,0">
+                    <Label Style="{StaticResource LabelStyle}" Content="Forma de contribuição" />
+                    <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboSituacaoMensalidade" Width="240" />
+                </StackPanel>
+
+            </WrapPanel>
+
+            <!-- ===================================================================== -->
+            <WrapPanel Margin="0,5,0,0">
+
+                <!-- <StackPanel> -->
+                <!-- <Label Style="{StaticResource LabelStyle}" Content="SIAPE/Matrícula" /> -->
+                <!-- <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextMatricula" Width="110" /> -->
+                <!-- </StackPanel> -->
+
+                <!-- <StackPanel Margin="20,0,0,0" /> -->
+                <!-- <StackPanel> -->
+                <!-- <Label Style="{StaticResource LabelStyle}" Content="Nº Contrato" /> -->
+                <!-- <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextNrContrato" Width="110" /> -->
+                <!-- </StackPanel> -->
+
+                <!-- <WrapPanel Margin="20,0,0,0" /> -->
+                <StackPanel>
+                    <Label Style="{StaticResource LabelStyle}" Content="Mensalidade" />
+                    <general:MoneyBox Style="{StaticResource TextBoxStyle}" x:Name="MoneyMensalidade" Width="110" />
+                </StackPanel>
+
+                <StackPanel Margin="20,0,0,0">
+                    <Label Style="{StaticResource LabelStyle}" Content="Ingresso serviço público" />
+                    <Canvas ZIndex="-1">
+                        <DatePicker Style="{StaticResource PickerStyle}" x:Name="DataIngressoPicker" SelectedDateChanged="DataIngressoPicker_OnSelectedDateChanged" />
+                    </Canvas>
+                    <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskDataIngresso" Mask="00/00/0000" />
+                </StackPanel>
+
+
+            </WrapPanel>
+
+
+        </StackPanel>
+    </Border>
+
+
+    <!-- ________________________________________________________________________________________________________________________________________________________________________________ -->
+    <Label Style="{StaticResource CaptionStyle}" Content="Aposentadoria" Margin="0,5,0,0" />
+
+    <Border Background="White" Margin="0,4,0,0" CornerRadius="5">
+        <StackPanel Margin="10">
+
+
+            <!-- ===================================================================== -->
+            <WrapPanel>
+
+                <StackPanel>
+                    <Label Style="{StaticResource LabelStyle}" Content="Data" />
+                    <Canvas ZIndex="-1">
+                        <DatePicker Style="{StaticResource PickerStyle}" x:Name="DataAposentadoriaPicker" SelectedDateChanged="DataAposentadoriaPicker_OnSelectedDateChanged" />
+                    </Canvas>
+                    <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskDataAposentadoria" Mask="00/00/0000" />
+                </StackPanel>
+
+                <!-- <WrapPanel Margin="20,0,0,0" /> -->
+                <!-- <StackPanel> -->
+                <!--     <Label Style="{StaticResource LabelStyle}" Content="Tipo" /> -->
+                <!--     <ComboBox Style="{StaticResource ComboStyle}" x:Name="ComboTipoAposentadoria" Width="240" /> -->
+                <!-- </StackPanel> -->
+                <!-- -->
+                <!-- <WrapPanel Margin="20,0,0,0" /> -->
+                <!-- <StackPanel> -->
+                <!--     <Label Style="{StaticResource LabelStyle}" Content="Fração" /> -->
+                <!--     <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextFracaoAposentadoria" Width="120" /> -->
+                <!-- </StackPanel> -->
+
+            </WrapPanel>
+
+        </StackPanel>
+    </Border>
+
+
+    <!-- ________________________________________________________________________________________________________________________________________________________________________________ -->
+    <Label Style="{StaticResource CaptionStyle}" Content="Órgão público" Margin="0,5,0,0" />
+
+    <Border Background="White" Margin="0,4,0,0" CornerRadius="5">
+        <StackPanel Margin="10">
+
+
+            <!-- ===================================================================== -->
+            <WrapPanel>
+
+                <StackPanel>
+                    <Label Style="{StaticResource LabelStyle}" Content="Código do órgão" />
+                    <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskCodigoOrgao" Mask="9999999999" TextAlignment="Right" />
+                </StackPanel>
+
+                <WrapPanel Margin="20,0,0,0" />
+                <StackPanel>
+                    <Label Style="{StaticResource LabelStyle}" Content="Nome do órgão" />
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextNomeOrgao" Width="370" />
+                </StackPanel>
+
+                <WrapPanel Margin="20,0,0,0" />
+                <StackPanel>
+                    <Label Style="{StaticResource LabelStyle}" Content="Sigla do órgão" />
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextSiglaOrgao" Width="240" />
+                </StackPanel>
+
+            </WrapPanel>
+
+
+
+        </StackPanel>
+    </Border>
+
+
+    <!-- ________________________________________________________________________________________________________________________________________________________________________________ -->
+    <Label Style="{StaticResource CaptionStyle}" Content="Unidade pagadora" Margin="0,5,0,0" />
+
+    <Border Background="White" Margin="0,4,0,0" CornerRadius="5">
+        <StackPanel Margin="10">
+
+
+            <!-- ===================================================================== -->
+            <WrapPanel>
+
+                <StackPanel>
+                    <Label Style="{StaticResource LabelStyle}" Content="Código da UPAG" />
+                    <xctk:MaskedTextBox Style="{StaticResource TextBoxStyle}" x:Name="MaskCodigoUpag" Mask="9999999999" TextAlignment="Right" />
+                </StackPanel>
+
+                <WrapPanel Margin="20,0,0,0" />
+                <StackPanel>
+                    <Label Style="{StaticResource LabelStyle}" Content="Nome da UPAG" />
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextNomeUpag" Width="370" />
+                </StackPanel>
+
+                <WrapPanel Margin="20,0,0,0" />
+                <StackPanel>
+                    <Label Style="{StaticResource LabelStyle}" Content="Sigla da UPAG" />
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextSiglaUpag" Width="110" />
+                </StackPanel>
+
+                <WrapPanel Margin="20,0,0,0" />
+                <StackPanel>
+                    <Label Style="{StaticResource LabelStyle}" Content="UF da UPAG" />
+                    <TextBox Style="{StaticResource TextBoxStyle}" x:Name="TextUfUpag" Width="110" MaxLength="2" />
+                </StackPanel>
+            </WrapPanel>
+
+
+        </StackPanel>
+    </Border>
+
+
+</StackPanel>

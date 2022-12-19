@@ -29,6 +29,7 @@ namespace intnet22.lib.member
             vo.IdPessoa = (int)(uint)reader["id_pessoa"];
             vo.IdStatusAssociativo = MySqlModule.ToInt(reader["id_statusAssociativo"]);
             vo.IdCarreiraServidor = MySqlModule.ToInt(reader["id_carreiraServidor"]);
+            vo.Parentesco = reader["parentesco"].ToString();
 
             // Vinculo
             vo.Active = MySqlModule.FromStringToBool(reader["active"].ToString());

@@ -29,6 +29,10 @@ namespace intnet22.lib.financial
         public float? ValorLiquido { get; set; }
 
         //
+        public string? OutNomeGrupo{ get; set; }
+        public string? OutNomeConta{ get; set; }
+        public string? OutDataBaixa{ get; set; }
+        public string? OutDataVencimento { get; set; }
 
         public override string ToString()
         {

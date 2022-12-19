@@ -40,6 +40,8 @@ namespace intnet22.lib.person
             vo.EmailComercial = reader["emailComercial"].ToString();
             vo.DataNascimento = MySqlModule.MyDateToDateTime(reader["dataNascimento"].ToString());
             vo.DataObito = MySqlModule.MyDateToDateTime(reader["dataObito"].ToString());
+
+            //
             vo.CelularPrincipal = MySqlModule.PhoneStringCheck(reader["celularPrincipal"].ToString());
             vo.CelularPrincipal2 = MySqlModule.PhoneStringCheck(reader["celularPrincipal2"].ToString());
             vo.CelularComercial = MySqlModule.PhoneStringCheck(reader["celularComercial"].ToString());
@@ -65,6 +67,7 @@ namespace intnet22.lib.person
             vo.RgUf = reader["rgUf"].ToString();
             vo.RgEmissao = MySqlModule.MyDateToDateTime(reader["rgData"].ToString());
             vo.OabNr = reader["documentoOAB"].ToString();
+            vo.OabUf = reader["oabUf"].ToString();
 
             //
             vo.FacebookUri = reader["facebook"].ToString();

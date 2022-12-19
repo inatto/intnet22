@@ -1,0 +1,135 @@
+﻿<Window x:Class="intnet22.lib.main.MainWindow"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:local="clr-namespace:intnet22.lib.main"
+                   mc:Ignorable="d"
+                   Title="ANPPREV ERP" Height="450" Width="800">
+
+    <Window.InputBindings>
+        <KeyBinding Key="A" Modifiers="Control" Command="{x:Static local:MainWindow.AssociatesOpen }" />
+    </Window.InputBindings>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static local:MainWindow.AssociatesOpen}" Executed="OpenCommandBinding_Executed" />
+    </Window.CommandBindings>
+
+    <Grid>
+
+        <!-- <DockPanel Background="{DynamicResource {x:Static SystemColors.DesktopBrushKey}}"> -->
+        <DockPanel>
+
+            <Menu DockPanel.Dock="Top" Padding="4">
+
+                <MenuItem Header="Principal" Padding="4">
+                    <MenuItem Header="Tema" IsEnabled="False" />
+                    <MenuItem Header="Configurações" IsEnabled="False" />
+                    <MenuItem Header="Reiniciar acesso" IsEnabled="False" />
+                    <Separator />
+                    <MenuItem Header="Sair" IsEnabled="True" Click="MenuSair_OnClick"  />
+                </MenuItem>
+
+                <MenuItem Header="Associados" Padding="4" Name="AssociadosMenu" IsEnabled="False">
+                    <MenuItem Header="Consultar" Click="MenuAssociados_Click" InputGestureText="CTRL + A" />
+                    <MenuItem Header="Relatórios" IsEnabled="False" />
+                </MenuItem>
+
+                <MenuItem Header="Financeiro" Padding="4" Name="FinanceiroMenu" IsEnabled="False">
+                    <MenuItem Header="Despesas" Click="MenuDespesas_Click" />
+                    <MenuItem Header="Receitas" Click="MenuReceitas_Click" />
+                    <MenuItem Header="Grupos contábeis" Click="MenuGrupos_Click" />
+                    <Separator />
+                    <MenuItem Header="Pendências de associado" IsEnabled="False" />
+                    <MenuItem Header="Enviar e-mails de aviso de pendência" IsEnabled="False" />
+                    <Separator />
+                    <MenuItem Header="Ver todos os lançamentos" IsEnabled="False" />
+                </MenuItem>
+
+                <MenuItem Header="Jurídico" Padding="4" Name="JuridicoMenu" IsEnabled="False">
+                    <MenuItem Header="Processos" Click="MenuProcessos_Click" />
+                    <!-- <MenuItem Header="Consultar" Click="MenuJuridico_Click"  /> -->
+                    <!-- <MenuItem Header="Relatórios"/> -->
+                </MenuItem>
+
+                <MenuItem Header="Conteúdo" Padding="4" Name="ConteudoMenu" IsEnabled="False">
+                    <MenuItem Header="Artigos" IsEnabled="False" />
+                    <MenuItem Header="Notícias" IsEnabled="False" />
+                    <MenuItem Header="Restrito" IsEnabled="False" />
+                </MenuItem>
+
+                <MenuItem Header="Marketing" Padding="4" Name="MarketingMenu" IsEnabled="False">
+                    <MenuItem Header="Campanhas" IsEnabled="False" />
+                    <MenuItem Header="E-mail marketing" IsEnabled="False" />
+                    <MenuItem Header="Calendário" IsEnabled="False" />
+                    <MenuItem Header="Questionários" IsEnabled="False" />
+                    <MenuItem Header="Eventos" IsEnabled="False" />
+                </MenuItem>
+
+                <!-- <MenuItem Header="Relacionamento" Padding="4"> -->
+                <!-- </MenuItem> -->
+
+                <MenuItem Header="Patrimonial" Padding="4" Name="PatrimonialMenu" IsEnabled="False" />
+
+                <MenuItem Header="Ajuda" Padding="4" IsEnabled="False">
+                    <!-- <MenuItem Header="Guia de uso" IsEnabled="False"/> -->
+                    <!-- <Separator /> -->
+                    <MenuItem Header="Sobre" IsEnabled="False" />
+                </MenuItem>
+
+            </Menu>
+
+            <StatusBar Background="SlateGray" DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
+
+                <StatusBar.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </ItemsPanelTemplate>
+                </StatusBar.ItemsPanel>
+
+                <StatusBarItem Grid.Column="1">
+                    <TextBlock Text="ANPPREV ERP" FontWeight="Bold" Padding="4" />
+                </StatusBarItem>
+
+                <Separator Grid.Column="2" />
+                <StatusBarItem Grid.Column="3">
+                    <TextBlock Text="0.221202" Padding="4" />
+                </StatusBarItem>
+
+                <Separator Grid.Column="4" />
+                <StatusBarItem Grid.Column="5">
+                    <ProgressBar Value="100" Width="20" Height="16" />
+                </StatusBarItem>
+
+                <Separator Grid.Column="6" />
+                <StatusBarItem Grid.Column="7">
+                    <ProgressBar Value="100" Width="20" Height="16" Foreground="#FF0000" />
+                </StatusBarItem>
+
+                <Separator Grid.Column="8" />
+
+                <StatusBarItem Grid.Column="9">
+                    <TextBlock Text="Pronto" FontWeight="Bold" Padding="4" />
+                </StatusBarItem>
+
+            </StatusBar>
+
+        </DockPanel>
+
+    </Grid>
+
+</Window>

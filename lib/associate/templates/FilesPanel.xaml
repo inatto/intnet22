@@ -1,0 +1,39 @@
+﻿<StackPanel x:Class="intnet22.lib.associate.templates.FilesPanel"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+            Margin="0" Background="#eeeeee">
+
+    <StackPanel.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </StackPanel.Resources>
+
+    <!-- ________________________________________________________________________________________________________________________________________________________________________________ -->
+    <Label Style="{StaticResource CaptionStyle}" Content="Arquivos" />
+
+    <Border Background="White" Margin="0,4,0,0" CornerRadius="5">
+        <StackPanel Margin="10">
+
+            <ListBox x:Name="FilesListBox" MouseDoubleClick="FilesListBox_OnMouseDoubleClick" />
+
+            <WrapPanel Margin="0,10,0,0">
+                <Button x:Name="FileUploadButton" Content="Upload arquivos" Click="FileUploadButton_OnClick"
+                        Height="30" Width="100"
+                        Foreground="White"
+                        Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"
+                        BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+
+                <Button x:Name="FileDeleteButton" Content="Remover" Click="FileDeleteButton_OnClick" Height="30" Width="60" Margin="20,0,0,0"/>
+
+            </WrapPanel>
+
+
+        </StackPanel>
+    </Border>
+
+
+</StackPanel>

@@ -1,0 +1,145 @@
+﻿<wpf:GeneralWindow x:Class="intnet22.lib.associate.AssociateForm"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:templates="clr-namespace:intnet22.lib.associate.templates"
+                   xmlns:wpf="clr-namespace:intnet22.lib.general.wpf"
+                   mc:Ignorable="d"
+                   ResizeMode="NoResize"
+                   WindowStyle="ThreeDBorderWindow"
+                   Title="Associado" Width="900" Height="840" Padding="0"
+                   KeyDown="Window_KeyDown">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Margin="0,0,0,50">
+
+        <TabControl BorderThickness="1" Padding="0" Background="#eeeeee">
+
+
+
+            <!-- _________________________________________________________________________________________________________________________________________________________ -->
+            <TabItem>
+
+                <TabItem.Header>
+                    <StackPanel>
+                        <Image Style="{StaticResource ImageStyle}" Name="ImgPessoal" />
+                        <TextBlock Text="Dados pessoais" FontSize="12" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <!-- Main Stack -->
+                <templates:PrincipalPanel x:Name="TplPrincipal" Margin="10" />
+
+            </TabItem>
+
+
+            <!-- _________________________________________________________________________________________________________________________________________________________ -->
+            <TabItem>
+
+                <TabItem.Header>
+                    <StackPanel>
+                        <Image Style="{StaticResource ImageStyle}" Name="ImgFuncional" />
+                        <TextBlock Text="Dados funcionais" FontSize="12" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <!-- Main Stack -->
+                <templates:FuncionalPanel x:Name="TplFuncional" Margin="10" />
+
+            </TabItem>
+
+
+            <!-- _________________________________________________________________________________________________________________________________________________________ -->
+            <TabItem Name="InstituidorTabItem">
+
+                <TabItem.Header>
+                    <StackPanel>
+                        <Image Style="{StaticResource ImageStyle}" Name="ImgInstituidor" />
+                        <TextBlock Text="Instituidor" FontSize="12" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <templates:InstituidorPanel x:Name="TplInstituidor" Margin="10" />
+
+            </TabItem>
+
+
+            <!-- _________________________________________________________________________________________________________________________________________________________ -->
+            <TabItem>
+
+                <TabItem.Header>
+                    <StackPanel>
+                        <Image Style="{StaticResource ImageStyle}" Name="ImgDependentes" />
+                        <TextBlock Text="Pensionista/Dependentes" FontSize="12" Name="TextBlockDependentes" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <templates:DependentsPanel x:Name="TplDependents" Margin="10" />
+
+            </TabItem>
+
+
+            <!-- _________________________________________________________________________________________________________________________________________________________ -->
+            <TabItem>
+
+
+                <TabItem.Header>
+                    <StackPanel>
+                        <Image Style="{StaticResource ImageStyle}" Name="ImgJuridical" />
+                        <TextBlock Text="Jurídico" FontSize="12" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <templates:JuridicalPanel x:Name="TplJuridical" Margin="10" />
+
+            </TabItem>
+
+
+            <!-- _________________________________________________________________________________________________________________________________________________________ -->
+            <TabItem>
+
+                <TabItem.Header>
+                    <StackPanel>
+                        <Image Style="{StaticResource ImageStyle}" Name="ImgInfo" />
+                        <TextBlock Text="Mais informações" FontSize="12" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <templates:MaisInfoPanel x:Name="TplMaisInfo" Margin="10" />
+
+            </TabItem>
+
+
+            <!-- _________________________________________________________________________________________________________________________________________________________ -->
+            <TabItem>
+
+                <TabItem.Header>
+                    <StackPanel>
+                        <Image Style="{StaticResource ImageStyle}" Name="ImgFiles" />
+                        <TextBlock Text="Arquivos" FontSize="12" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <templates:FilesPanel x:Name="TplFiles" Margin="10" />
+
+            </TabItem>
+
+
+        </TabControl>
+
+        <Button x:Name="OkButton" Content="Ok" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="OkButton_Click" Height="30" Width="100" Margin="0,0,20,-40"
+                Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Foreground="White" />
+
+
+    </Grid>
+
+
+</wpf:GeneralWindow>

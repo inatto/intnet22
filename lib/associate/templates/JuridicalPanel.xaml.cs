@@ -1,23 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Windows.Input;
-using intnet22.lib.associate;
-using intnet22.lib.financial;
+﻿using System.Web;
+using System.Windows;
 using intnet22.lib.general;
-using MySql.Data.MySqlClient;
 
 // ReSharper disable UseObjectOrCollectionInitializer
 // ReSharper disable LoopCanBeConvertedToQuery
 // ReSharper disable once UseObjectOrCollectionInitializer
 
 //
-namespace intnet22.lib.jud.templates
+namespace intnet22.lib.associate.templates
 {
     /// <summary>
     /// </summary>
-    public partial class PartsGrid : IGrid
+    public partial class JuridicalPanel : IGrid
     {
         //
-        private MySqlConnection? _conn;
+        // private MySqlConnection? _conn;
         private long? _idMembroOwner;
         private long? _idProcesso;
 
@@ -27,7 +24,8 @@ namespace intnet22.lib.jud.templates
             set
             {
                 _idMembroOwner = value;
-                LoadGrid();
+                _idMembroOwner = value;
+                // LoadGrid();
             }
         }
 
@@ -37,31 +35,29 @@ namespace intnet22.lib.jud.templates
             set
             {
                 _idProcesso = value;
-                LoadGrid();
+                _idProcesso = value;
+                // LoadGrid();
             }
         }
 
 
-        public PartsGrid()
+        public JuridicalPanel()
         {
             //
             InitializeComponent();
 
-            //
-            // GeneralModule.BucketIconFc(TabIcon, "users_3");
         }
 
         public void LoadGrid()
         {
             //
-            _conn = MySqlModule.Connectt();
+            /*_conn = MySqlModule.Connectt();
 
             //
             var sql = " select * from vw_parteJud where 1 ";
             if (_idMembroOwner is not null) sql += $" and id_membro = {_idMembroOwner} ";
             if (_idProcesso is not null) sql += $" and id_processoJud = {_idProcesso} ";
-            sql += " order by nome ";
-            // sql += " limit 200 ";
+            sql += " order by nome desc limit 10 ";
 
             //
             var command = new MySqlCommand(sql, _conn);
@@ -78,27 +74,24 @@ namespace intnet22.lib.jud.templates
 
             //
             reader.Close();
-            MainDataGrid.ItemsSource = vos;
+            MainDataGrid.ItemsSource = vos;*/
         }
 
-        private void MainDataGrid_OnMouseDoubleClick(object? sender = null, MouseButtonEventArgs? e = null)
+
+        private void ReportButton_OnClick(object sender, RoutedEventArgs e)
         {
-            // clique no titulo, por exemplo
-            if (MainDataGrid.SelectedCells.Count <= 0) return;
-            var id = ((VoPartJud)MainDataGrid.SelectedCells[0].Item).IdMembro;
+            LinkReport(this._idMembroOwner);
+        }
+
+        private static void LinkReport(long? idMembro)
+        {
+            //
+            var queryString = HttpUtility.ParseQueryString(string.Empty);
+            queryString.Add("d9b796a10b33c99189e5747c03ee02cfc778587e", idMembro.ToString());
 
             //
-            ControlModule.OpenModalWindow(this, new AssociateForm(Constants.Update, id));
+            GeneralModule.OpenUrl("https://anpprev.org.br/jud/processReport?" + queryString);
         }
 
-        private void MainDataGrid_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            // desabilita enter indo para baixo
-            if (e.Key != Key.Enter) return;
-            e.Handled = true;
-
-            //
-            MainDataGrid_OnMouseDoubleClick();
-        }
     }
 }
